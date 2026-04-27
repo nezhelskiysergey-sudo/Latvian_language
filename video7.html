@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обучающий материал: Реконструкция в Золитуде</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        /* Видео-заголовок */
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: #000;
+            aspect-ratio: 16 / 9;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Основной контент */
+        .content {
+            margin-top: 58vw; /* Динамический отступ под видео (100% ширины * 9/16 ≈ 56.25vw + запас) */
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+            width: 50%;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: white;
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+
+        /* Стили для текста */
+        .original-text {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .translation-text {
+            color: #555;
+        }
+
+        /* Адаптивность для мобильных (< 600px) */
+        @media (max-width: 600px) {
+            table {
+                font-size: 0.9em;
+            }
+            th, td {
+                padding: 10px;
+            }
+        }
+
+        /* Горизонтальный режим (Планшеты/ПК) */
+        @media (orientation: landscape) {
+            .video-container {
+                width: 45%;
+                height: 100vh;
+            }
+
+            .content {
+                margin-top: 0;
+                margin-left: 45%;
+                height: 100vh;
+                overflow-y: auto;
+                padding: 0;
+            }
+
+            table {
+                box-shadow: none;
+            }
+
+            th {
+                position: sticky;
+                top: 0;
+                z-index: 10;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="video-container">
+        <iframe 
+            src="https://www.youtube.com/embed/aQuZC88hmYI" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <div class="content">
+        <table>
+            <thead>
+                <tr>
+                    <th>Latviešu (Original)</th>
+                    <th>Русский (Перевод)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="original-text">Nepabeigtās daudzstāvu jaunbūves liktenis vēl vairākus gadus pēc lielveikala Maksima sabrukšanas Zolitūdē ik pa laikam kļuva par diskusiju tematu.</td>
+                    <td class="translation-text">Судьба недостроенной многоэтажной новостройки еще несколько лет после обрушения супермаркета Maxima в Золитуде время от времени становилась темой дискуссий.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Nams mainīja saimniekus, izskanēja priekšlikumi to nojaukt, taču tas nenotika.</td>
+                    <td class="translation-text">Здание меняло владельцев, звучали предложения его снести, однако этого не произошло.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Tagad būvei ir jauns īpašnieks. Par 11 miljoniem eiro to ir iegādājies uzņēmums PR20.</td>
+                    <td class="translation-text">Теперь у постройки новый владелец. За 11 миллионов евро её приобрело предприятие PR20.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Gribās uztaisīt šeit īres namu. Paredzēts, ka būs aptuveni 130 labiekārtoti dzīvokļi.</td>
+                    <td class="translation-text">Хочется создать здесь арендный дом. Планируется, что будет около 130 благоустроенных квартир.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Nu, pārsvarā tad tie būs tādi no divu līdz četristabu dzīvokļi. Ir plānots visus mēbelētus jau tā pēc pieredzes, ir vieglāk izīrēt.</td>
+                    <td class="translation-text">Ну, в основном это будут двух-четырехкомнатные квартиры. Планируется их все обставить мебелью — по опыту, так легче сдать в аренду.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Plānojam... nu, kopā plānots ieguldīt aptuveni 11 miljonus eiro.</td>
+                    <td class="translation-text">Планируем... ну, в общей сложности планируется вложить около 11 миллионов евро.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Jaunie saimnieki norāda, ka namam nepieciešama pilnīga rekonstrukcija.</td>
+                    <td class="translation-text">Новые владельцы указывают, что зданию необходима полная реконструкция.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Laikā, kad sabruka lielveikals, nogalinot 54 cilvēkus, blakus esošā jaunbūve esot bijusi jau gandrīz pabeigta.</td>
+                    <td class="translation-text">В то время, когда обрушился супермаркет, унеся жизни 54 человек, соседняя новостройка была уже почти завершена.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Šos 12 gadus nams ticis ne vien iekonservēts, bet arī ziemā apkurināts.</td>
+                    <td class="translation-text">Эти 12 лет дом был не только законсервирован, но и отапливался в зимний период.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Ja te viss tā kā sakārtosies, tad ieguvējs būs viss rajons. Un tāpēc es redzu tikai pozitīvo šeit.</td>
+                    <td class="translation-text">Если здесь всё приведут в порядок, то выиграет весь район. И поэтому я вижу здесь только позитивное.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Savukārt turpat blakus top atceres dārzs.</td>
+                    <td class="translation-text">В свою очередь, совсем рядом создается сад памяти.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Šajā vasarā tiek solīts beidzot pabeigt jau sen solītās piemiņas vietas veidošanu sabrukušās Maksimas vietā.</td>
+                    <td class="translation-text">Этим летом обещают наконец закончить создание давно обещанного мемориала на месте обрушившейся «Максимы».</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Tātad tur būs šis te piemiņas tāds pakalns, kurš ir veidots tieši tajā vietā, kur bija jumta nogruvums.</td>
+                    <td class="translation-text">Итак, там будет такой памятный холм, созданный именно в том месте, где произошло обрушение крыши.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Tātad šajā atceres vietā būs 54 nerūsējoša tērauda sfēras, kas tātad simbolizē šo te bojā gājušo cilvēku skaitu.</td>
+                    <td class="translation-text">На этом месте памяти будут установлены 54 сферы из нержавеющей стали, которые символизируют число погибших людей.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Tāpat būs arī atceres siena ar bojāgājušo cilvēku vārdiem un arī vieta, kur nolikt ziedus un sveces.</td>
+                    <td class="translation-text">Также будет стена памяти с именами погибших, а также место, где можно возложить цветы и поставить свечи.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Gaidāmās pārmaiņas, kas skar traģēdijas vietai blakus esošo namu, iedzīvotājiem raisa dažādas domas.</td>
+                    <td class="translation-text">Предстоящие перемены, касающиеся дома рядом с местом трагедии, вызывают у жителей разные мысли.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Miruši cilvēki, tā kā nobruka maksima, ne īpaši smuki būtu tā kā piemiņai, nevajadzētu neko šeit būvēt īpaši.</td>
+                    <td class="translation-text">Погибли люди, когда рухнула Максима, не очень красиво было бы для памяти, не стоило бы здесь ничего строить специально.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Es domāju, ja to māju renovētu, tad visticamāk jā, jo ja te būtu tādas piemiņas vietas traģēdijai, kā arī šeit ir netālas skolas, tad arī ir pieejami veikali, viss.</td>
+                    <td class="translation-text">Я думаю, если бы этот дом реновировали, то скорее всего да, потому что если бы здесь были такие места памяти трагедии, а также рядом школы, магазины доступны, всё есть.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Es domāju, mierīgi cilvēki varētu arī šeit arī īrēt tos dzīvokļus, jo paskatoties apkārt, kāds ir citu māju stāvoklis, kāpēc gan nē.</td>
+                    <td class="translation-text">Я думаю, люди спокойно могли бы здесь арендовать эти квартиры, ведь если посмотреть вокруг на состояние других домов — почему бы и нет.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Piebildīsim, ka jaunie saimnieki prognozē, ka aptuveni pēc gada namu varētu sākt apdzīvot.</td>
+                    <td class="translation-text">Добавим, что новые владельцы прогнозируют: примерно через год дом могут начать заселять.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Zanda Ozola-Balode, Emīlija Gasparjana un Emīls Desjatņikovs, Latvijas Televīzija.</td>
+                    <td class="translation-text">Занда Озола-Балоде, Эмилия Гаспарян и Эмилс Десятниковс, Латвийское телевидение.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

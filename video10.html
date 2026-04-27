@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебные материалы: Rail Baltica (EDzL)</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        /* Видео-заголовок (фиксация сверху) */
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: #000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .video-container iframe {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            display: block;
+        }
+
+        /* Динамический отступ для контента */
+        .content {
+            margin-top: 58vw; /* Авто-подстройка под высоту видео на мобильных */
+            padding: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+            width: 50%;
+        }
+
+        th {
+            background-color: #0055a4;
+            color: white;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 1px;
+        }
+
+        .original-text {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .translation-text {
+            font-weight: 400;
+            color: #444;
+        }
+
+        /* Адаптивность для малых экранов */
+        @media (max-width: 600px) {
+            table {
+                font-size: 0.9em;
+            }
+            th, td {
+                padding: 10px;
+            }
+        }
+
+        /* Горизонтальный режим (Планшеты/ПК) */
+        @media (orientation: landscape) {
+            .video-container {
+                width: 45%;
+                height: 100vh;
+                position: fixed;
+                left: 0;
+                top: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .content {
+                margin-top: 0;
+                margin-left: 45%;
+                height: 100vh;
+                overflow-y: auto;
+                padding: 30px;
+            }
+
+            .video-container iframe {
+                height: auto;
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/XEMczQ6yQMw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <div class="content">
+        <h1>Atkal mainās par "Rail Baltica" īstenošanu Latvijā atbildīgās "EDzL" vadība</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Latvian</th>
+                    <th>Russian</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="original-text">Vadības grožus SIA Eiropas dzelzceļa līnijās Satiksmes ministrija uz laiku nolēmusi uzticēt bijušajam Latvijas dzelzceļa valdes loceklim Mārtiņam Ķeņģim.</td>
+                    <td class="translation-text">Бразды правления в ООО «Европейские железнодорожные линии» (EDzL) Министерство сообщения решило временно доверить бывшему члену правления «Latvijas dzelzceļš» Мартиньшу Кеньгису.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Tas publiski tika izziņots vakar un paredzēts ka Ķeņģis pienākumus pildīs tik ilgi kamēr konkursā atradīs pastāvīgu priekšsēdētāju.</td>
+                    <td class="translation-text">Об этом было публично объявлено вчера, и планируется, что Кеньгис будет исполнять обязанности до тех пор, пока в ходе конкурса не будет найден постоянный председатель.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Ķeņģis esot tieši tāds vadītājs kāds Rail Baltic šobrīd vajadzīgs skaidro Satiksmes ministrijas valsts sekretārs.</td>
+                    <td class="translation-text">Кеньгис является именно таким руководителем, какой сейчас необходим Rail Baltica, поясняет государственный секретарь Министерства сообщения.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Piebildīšu ka iepriekšējo darba vietu Latvijas dzelzceļā ķeņģis atstāja pats pēc tam kad uzņēmuma iekšienē sāka skatīt vairāku darbinieku sūdzības par ķeņģa iespējams izvērsto mobingu.</td>
+                    <td class="translation-text">Добавлю, что предыдущее место работы в «Latvijas dzelzceļš» Кеньгис покинул сам после того, как внутри компании начали рассматривать жалобы нескольких сотрудников на возможный моббинг со стороны Кеньгиса.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Jā sūdzības ir bijušas bet šis bija pats tātad Mārtiņa lēmums aiziet no uzņēmuma.</td>
+                    <td class="translation-text">Да, жалобы были, но это было решение самого Мартиньша — уйти из компании.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Un tas tā lieta līdz galam nav bijusi arī izmeklēta bet es esmu arī personīgi runājis arī ar dzelzceļa darbiniekiem kuri ļoti pozitīvi novērtē Mārtiņa sniegumu.</td>
+                    <td class="translation-text">И это дело не было расследовано до конца, но я лично разговаривал с работниками железной дороги, которые очень позитивно оценивают работу Мартиньша.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Un tāpēc mēs viņu arī šobrīd paaicinājām tieši dēļ viņa šīs te uz rezultātu orientāciju un tieši dēļ tās viņa varēšanas to darīt.</td>
+                    <td class="translation-text">И поэтому мы пригласили его именно сейчас из-за его ориентации на результат и его способности это делать.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Raidījums De Facto pagājušā gada nogalē ziņoja ka vairāku darbinieku iesniegumā aprakstītās epizodes saistās ar pazemošanu aizskarošiem komentāriem tostarp saistībā ar vecumu kā arī pēc darbinieku domām nesamērīgu darba prasību izvirzīšanu.</td>
+                    <td class="translation-text">Передача «De Facto» в конце прошлого года сообщала, что эпизоды, описанные в заявлениях нескольких сотрудников, связаны с унижением, оскорбительными комментариями, в том числе по поводу возраста, а также, по мнению сотрудников, выдвижением несоразмерных рабочих требований.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Iesaistījās Valsts darba inspekcija bet lietu līdz ar ķeņģa paša lēmumu aiziet no uzņēmuma arī izbeidza.</td>
+                    <td class="translation-text">Вмешалась Государственная инспекция труда, но дело было прекращено в связи с решением самого Кеньгиса покинуть компанию.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Reaģējot uz saņemto darbinieku sūdzību tika izveidota komisija iesaistot gan uzņēmuma padomi gan arodbiedrības pārstāvi kā neatkarīgu pusi.</td>
+                    <td class="translation-text">В ответ на полученную жалобу сотрудников была создана комиссия с участием совета предприятия и представителя профсоюза в качестве независимой стороны.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Komisija izvērtēja situāciju veica pārrunas un analizēja apstākļus Izvērtēšanas procesā iesaistītā persona pieņēma lēmumu atstāt darbu Latvijas dzelzceļā.</td>
+                    <td class="translation-text">Комиссия оценила ситуацию, провела переговоры и проанализировала обстоятельства. В процессе оценки вовлеченное лицо приняло решение уйти с работы в «Latvijas dzelzceļš».</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Līdz ar to situācija tika noslēgta bez turpmākiem disciplināriem lēmumiem.</td>
+                    <td class="translation-text">В результате ситуация была закрыта без дальнейших дисциплинарных решений.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Ķeņģis un cita kolēģe kuras vārds arī figurēja iesniegumos un kura arī amatu atstāja pati raidījumam De Facto noliedza ka jebkad bijušas situācijas kurās viņi izturējušies neētiski vai necienīgi pret kolēģiem.</td>
+                    <td class="translation-text">Кеньгис и другая коллега, чье имя также фигурировало в заявлениях и которая также сама покинула должность, отрицали в передаче «De Facto», что когда-либо были ситуации, в которых они вели бы себя неэтично или неуважительно по отношению к коллегам.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Un Satiksmes ministrijai nekādu bažu par ķeņģa reputāciju saistībā ar iepriekšējām sūdzībām un to ka tās nemaz netika izmeklētas līdz galam neesot citādi nebūtu viņu aicinājuši.</td>
+                    <td class="translation-text">И у Министерства сообщения нет опасений по поводу репутации Кеньгиса в связи с предыдущими жалобами и тем фактом, что они не были расследованы до конца; иначе его бы не пригласили.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Jaunais Eiropas dzelzceļa līniju pagaidu vadītājs Panorāmai šodien sniedza rakstisku komentāru kurā plašāk iepriekšējo lietu saistībā ar iespējamo mobingu nekomentē.</td>
+                    <td class="translation-text">Новый временный руководитель «Eiropas dzelzceļa līnijas» сегодня предоставил программе «Panorāma» письменный комментарий, в котором подробно не комментирует предыдущее дело о возможном моббинге.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Vien skaidro to pašu ko saka arī ministrijā Viņš esot prasīgs pret darbiniekiem.</td>
+                    <td class="translation-text">Он лишь объясняет то же самое, что говорят в министерстве: он требователен к сотрудникам.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Mana kā vadītāja dinamika atbilst Eiropas dzelzceļa līniju procesu vadībai nepieciešamajam ritmam un rezultativitātei mainīgos apstākļos.</td>
+                    <td class="translation-text">«Моя динамика как руководителя соответствует ритму и результативности, необходимым для управления процессами "Eiropas dzelzceļa līnijas" в меняющихся условиях».</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Savukārt līdzšinējā darba pieredze valsts uzņēmumā ļauj izdarīt secinājumu ka dažkārt procesu gaita lēmumu pieņemšana personāla iesaiste un iniciatīva atspoguļo diezgan gausu darba vidi kura nāk mantojumā no vadības stila kas veidojies 10 gadiem.</td>
+                    <td class="translation-text">В свою очередь, предыдущий опыт работы в госкомпании позволяет сделать вывод, что иногда ход процессов, принятие решений, вовлеченность персонала и инициатива отражают довольно вялую рабочую среду, доставшуюся в наследство от стиля управления, формировавшегося десятилетиями.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Neizpratni par šādu ministrijas lēmumu tikmēr pauž Latvijas Dzelzceļnieku un satiksmes nozares arodbiedrība.</td>
+                    <td class="translation-text">Недоумение по поводу такого решения министерства тем временем выражает Латвийский профсоюз железнодорожников и отрасли сообщения.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">No ķeņģa pagaidu valdes priekšsēdētāja amatā tiek sagaidīts straujāks būvniecības progress Rail Baltica pamattrasē.</td>
+                    <td class="translation-text">От Кеньгиса на посту временного председателя правления ожидается более стремительный прогресс в строительстве основной трассы Rail Baltica.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Jau ziņojām ka Eiropas dzelzceļa līniju vadība uzņēmuma pastāvēšanas laikā mainījusies visai bieži.</td>
+                    <td class="translation-text">Мы уже сообщали, что руководство «Eiropas dzelzceļa līnijas» за время существования компании менялось довольно часто.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Gandrīz 12 gadu pastāvēšanas laikā uzņēmuma vadībā nomainījušies 12 cilvēki. Ķeņģis lai arī iecelts uz laiku patlaban ir 13 Kas nonācis šī uzņēmuma vadībā.</td>
+                    <td class="translation-text">За почти 12 лет существования в руководстве компании сменилось 12 человек. Кеньгис, хотя и назначен временно, является 13-м, кто возглавил это предприятие.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

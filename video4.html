@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обучающий материал: Открытие мотосезона в Риге</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        /* Видео-заголовок (фиксированный сверху) */
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: #000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Основной контент */
+        .content {
+            margin-top: 58vw; /* Динамический отступ под видео */
+            padding: 15px;
+        }
+
+        h1 {
+            font-size: 1.4em;
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        /* Таблица */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+            width: 50%;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: white;
+            text-transform: uppercase;
+            font-size: 0.8em;
+            letter-spacing: 1px;
+        }
+
+        /* Стили колонок */
+        .original-text {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .translated-text {
+            font-weight: 400;
+            color: #444;
+        }
+
+        /* Адаптивность для мобильных (< 600px) */
+        @media (max-width: 600px) {
+            table {
+                font-size: 0.9em;
+            }
+            th, td {
+                padding: 10px 8px;
+            }
+        }
+
+        /* Горизонтальный режим (Планшеты/ПК) */
+        @media (orientation: landscape) {
+            .video-container {
+                width: 45%;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+            }
+
+            .video-wrapper {
+                height: 100%;
+                padding-bottom: 0;
+            }
+
+            .content {
+                margin-top: 0;
+                margin-left: 45%;
+                height: 100vh;
+                overflow-y: auto;
+                padding: 30px;
+            }
+
+            h1 {
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="video-container">
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/Nres64aJFeQ" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="content">
+        <h1>Открытие мотосезона в Риге</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Latvian (Original)</th>
+                    <th>Russian (Translation)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td class="original-text">Labrīt kolēģi Labrīt arī skatītāji Tas brīdis tuvojas jau rīta 25 aprīlī sāksies moto sezona</td><td class="translated-text">Доброе утро, коллеги, доброе утро и зрители. Этот момент приближается — уже завтра, 25 апреля, начнется мотосезон.</td></tr>
+                <tr><td class="original-text">Un protams neiztikt bez kārtīgas pulcēšanās un arī parādes</td><td class="translated-text">И, конечно, не обойтись без настоящего сбора и парада.</td></tr>
+                <tr><td class="original-text">Un šajā rītā par to kas tad īsti kur īsti norisināsies mums vairāk pastāstīs Uģis Spēlmanis un Rūdolfs Bergmanis</td><td class="translated-text">И этим утром о том, что именно и где будет происходить, нам подробнее расскажут Угис Спелманис и Рудольф Бергманис.</td></tr>
+                <tr><td class="original-text">Labrīt Rūdolf Ko tad varam sagaidīt no rītdienas</td><td class="translated-text">Доброе утро, Рудольф! Чего же нам ожидать от завтрашнего дня?</td></tr>
+                <tr><td class="original-text">Tātad rītdien sākās sezona ir vēl drusku augsta bet sezona ir jāsāk Krīg no laikapstākļiem</td><td class="translated-text">Итак, завтра начинается сезон. Еще немного прохладно, но сезон нужно начинать, независимо от погоды.</td></tr>
+                <tr><td class="original-text">Tātad rītā kas tad notiks No 10:00 līdz 2:00 pulcējamies pie Akropola Rīga</td><td class="translated-text">Значит, что будет завтра: с 10:00 до 14:00 собираемся у "Akropole Rīga".</td></tr>
+                <tr><td class="original-text">Vienos būs dzelz vilka koncertс Pēc tam skaistā parādes braucienā braucam uz Spilves lidlauku</td><td class="translated-text">В час дня будет концерт группы "Dzelzs Vilks". После этого в красивом парадном строю едем на аэродром Спилве.</td></tr>
+                <tr><td class="original-text">Uģi Jā Svarīgākais jautājums No kurienes Uz kurieni Pa kurieni un cikos</td><td class="translated-text">Угис, да, важнейший вопрос: Откуда? Куда? По какому маршруту и во сколько?</td></tr>
+                <tr><td class="original-text">Tātad nu parāde sāksies Akropolē Rīga Latgales ielā ja Tātad mums ir tā dislokācija mazliet mainījusies</td><td class="translated-text">Итак, парад начнется от "Akropole Rīga" на улице Латгалес. Наша дислокация немного изменилась.</td></tr>
+                <tr><td class="original-text">Braucam pāri dienvidu tiltam ja pa Ziepniekkalna ielu Mūku iela Trijādības iela un pēc tam esam ārā uz Daugavgrīvas ielu un līdz Spilves lidostai</td><td class="translated-text">Едем через Южный мост, по улице Зиепниеккална, улице Мукусалас, Триядибас, а затем выезжаем на улицу Даугавгривас и до аэропорта Спилве.</td></tr>
+                <tr><td class="original-text">Spilves lidostā tad mums ir atkal atkal atkal skatuve Nē bet nu tātad mēs tur tātad tā ir tā vieta kur mēs apstājamies</td><td class="translated-text">В аэропорту Спилве у нас снова... сцена? Нет, ну, в общем, это то место, где мы останавливаемся.</td></tr>
+                <tr><td class="original-text">Nu un tad tad mēs tur varam pasēdēt un parunāt ja</td><td class="translated-text">Ну и там мы сможем посидеть и поговорить.</td></tr>
+                <tr><td class="original-text">Ir kāda vieta kur jūs ieteiktu pulcēties arī tiem kas grib paskatīties parādi</td><td class="translated-text">Есть ли место, где вы посоветуете собраться тем, кто хочет просто посмотреть парад?</td></tr>
+                <tr><td class="original-text">Būtībā jebkurā vietā kur brauc parādes brauciens ērtāk kā jums tuvāk mājām lai vienkāršāk</td><td class="translated-text">В принципе, в любом месте по маршруту парада, где вам удобнее и ближе к дому.</td></tr>
+                <tr><td class="original-text">Tātad jebkurā vietā kur brauks parāds brauciens būs ļoti labi viss redzams</td><td class="translated-text">Так что везде, где пройдет колонна, все будет очень хорошо видно.</td></tr>
+                <tr><td class="original-text">Es jau domāju ka dienvid tilts tas labākais ir ja</td><td class="translated-text">Я думаю, что Южный мост — это лучшее место.</td></tr>
+                <tr><td class="original-text">Tāpatās ja mēs esam pie Akropoles pie Akropoles ir lieta tā ka tur jūs varat redzēt visus tos motociklus lielos mazos ja zem platos</td><td class="translated-text">Также, если быть у "Akropole", там можно рассмотреть все мотоциклы: большие, маленькие, низкие, широкие.</td></tr>
+                <tr><td class="original-text">Tātad visi kas tur būs tie ir apskatāmi Ja mēs gribam parādi skatīties nu tad mēs varam paiet tālāk līdz dienvid tiltam</td><td class="translated-text">Всех их там можно рассмотреть. А если хотим видеть именно парад в движении, можем пройти до Южного моста.</td></tr>
+                <tr><td class="original-text">Un no dienvidu tilta to visu var man liekas ļoti skaisti varēs redzēt</td><td class="translated-text">И с Южного моста, мне кажется, все это будет очень красиво видно.</td></tr>
+                <tr><td class="original-text">Kā tad īsti ir Ir jūtams ka gadu no gada to motociklistu un arī motoklubu paliek arvien vairāk</td><td class="translated-text">А как на самом деле? Чувствуется ли, что из года в год мотоциклистов и мотоклубов становится больше?</td></tr>
+                <tr><td class="original-text">Nu es varu teikt pēc sava pēc sava darba pēc profesijas ja Tātad kursanti nāk ja</td><td class="translated-text">Ну, я могу судить по своей работе, по профессии. Курсанты приходят.</td></tr>
+                <tr><td class="original-text">Un cilvēki kuri noliek un iegūst šo A kategoriju paliek arvien vairāk Un arī motociklu tirdzniecība iet uz priekšu</td><td class="translated-text">Людей, которые сдают экзамены и получают категорию А, становится всё больше. И продажи мотоциклов растут.</td></tr>
+                <tr><td class="original-text">Par klubiem runājot jā jauni klubi rodas Jauni klubi es teiktu tā diezgan tādi ne Rīgā bet ārpus Rīgas parādās jauni klubi</td><td class="translated-text">Говоря о клубах — да, создаются новые. Я бы сказал, новые клубы и клубики появляются даже не в Риге, а за её пределами.</td></tr>
+                <tr><td class="original-text">Un tas priecē tas ļoti priecē Nu mēs esam arvien vairāk un vairāk</td><td class="translated-text">И это радует, очень радует. Нас становится всё больше и больше.</td></tr>
+                <tr><td class="original-text">Sezonai sākoties protams mēs nevaram nerunāt par drošību Kas ir tas kas jāņem vērā ne tikai rīt bet arī katru dienu</td><td class="translated-text">С началом сезона мы, конечно, не можем не говорить о безопасности. Что нужно учитывать не только завтра, но и каждый день?</td></tr>
+                <tr><td class="original-text">Nu ikdienā protams ka tā drošība ir pirmā vietā Skatāmies nu sākam ar sevi ja tātad skatāmies kāds mums ir ekipējums</td><td class="translated-text">В повседневной жизни безопасность, конечно, на первом месте. Начинаем с себя: смотрим, какая у нас экипировка, в какой одежде едем.</td></tr>
+                <tr><td class="original-text">Motociklam jābūt tehniskā kārtībā Nu tātad pēc ziemas vienmēr noteikti jāpārbauda ir jāatziemo viņš jāpārbauda Spiediens riepās</td><td class="translated-text">Мотоцикл должен быть в техническом порядке. После зимы обязательно нужно его проверить, "раззиммировать". Давление в шинах — это первое.</td></tr>
+                <tr><td class="original-text">Pirmā lieta ja vai ir vai ir tās ķēdes ieeļļotas vai tur ir kaut kas nav sabojājies par to ziemu ja</td><td class="translated-text">Смазаны ли цепи, не испортилось ли что-то за зиму.</td></tr>
+                <tr><td class="original-text">Runājot par par šo braukšanas satiksmē nu atceramies vienu kad uzkāpjot uz motociklu mēs paliekam neredzami</td><td class="translated-text">Говоря об участии в движении: помним одно — садясь на мотоцикл, мы становимся невидимыми.</td></tr>
+                <tr><td class="original-text">Mēs paši paliekam neredzami Mūs neredz neviens ja Tātad mēs braucam tā lai ja arī tā mašīna mums izbrauc priekšā</td><td class="translated-text">Мы сами становимся невидимыми, нас никто не видит. Поэтому едем так, чтобы даже если машина выедет перед нами...</td></tr>
+                <tr><td class="original-text">Mēs saprotam ka mēs esam kaut kādā brīdī viņai kļuvuši neredzami Viņi speciāli to nedara</td><td class="translated-text">Мы понимаем, что в какой-то момент стали для неё невидимы. Водители делают это не специально.</td></tr>
+                <tr><td class="original-text">Un otrs varbūt arī mašīnām vairāk paskatīties tajā spogulī lai tu ieraugi tomēr to motociklu</td><td class="translated-text">И второе — водителям машин стоит почаще смотреть в зеркала, чтобы заметить мотоцикл.</td></tr>
+                <tr><td class="original-text">Kurš ir daudz šaurāks nekā cits automobilis Un ko jūs ieteiktu tiem kas parādē piedalīsies pašu pirmo reizi</td><td class="translated-text">Который гораздо уже, чем автомобиль. А что вы посоветуете тем, кто участвует в параде впервые?</td></tr>
+                <tr><td class="original-text">Tiem kas parādē piedalīsies pašu pirmo reizi ieteiktu braukt atbilstoši savām iespējām nemēģināt nevienu apdzīt</td><td class="translated-text">Тем, кто участвует впервые, советую ехать в соответствии со своими возможностями и не пытаться никого обгонять.</td></tr>
+                <tr><td class="original-text">Mēs visi nonāksim galā kopā Tātad nav sacensības sacensības ir citās vietās</td><td class="translated-text">Мы все прибудем к финишу вместе. Это не соревнования, соревнования проводятся в других местах.</td></tr>
+                <tr><td class="original-text">Un tātad mierīgi lēnām izbaudot braucienu braukt respektēt pārējos respektēt sevi un viss būs forši</td><td class="translated-text">Так что спокойно, медленно, наслаждаясь поездкой, уважайте других, уважайте себя, и всё будет круто.</td></tr>
+                <tr><td class="original-text">Un ar kādiem ceļavārdiem jūs pavadītu paši sevi un arī visus pārējos motobraucējus rīt Lai šogad būtu vasara</td><td class="translated-text">С какими напутствиями вы проводите себя и остальных завтра? Чтобы в этом году было лето!</td></tr>
+                <tr><td class="original-text">Tieši tā Un pēdējais jautājums Jūsu motocikli jau ir uzpucēti sapulēti un gatavi parādei</td><td class="translated-text">Именно так. И последний вопрос: ваши мотоциклы уже начищены, отполированы и готовы к параду?</td></tr>
+                <tr><td class="original-text">Braukšanai gatavs bet uzpucēts vēl nav Cerams ka šodien ja paliks laiki tad kaut ko darīšu</td><td class="translated-text">К езде готов, но еще не накрахмален. Надеюсь, сегодня, если останется время, что-нибудь сделаю.</td></tr>
+                <tr><td class="original-text">Rūdolf kā ir tev Man viss ir vislabākajā kārtībā Viss sapucēts viss gatavs braukšanai Jauns ķīniešu motocikls</td><td class="translated-text">Рудольф, а у тебя? У меня всё в полном порядке. Всё начищено, всё готово к поездке. Новый китайский мотоцикл.</td></tr>
+                <tr><td class="original-text">Nu ja tu tā saki tad zini man pilnīgi gribas izbraukt ar tavu jauno ķīniešu motociklu Drīkst protams</td><td class="translated-text">Ну, раз ты так говоришь, знаешь, мне прямо хочется прокатиться на твоем новом китайском мотоцикле. — Можно, конечно.</td></tr>
+                <tr><td class="original-text">Drošība protams pirmajā vietā Un tā ir ķivere Bez tās nu nekādīgi</td><td class="translated-text">Безопасность, конечно, на первом месте. И это шлем. Без него никак.</td></tr>
+                <tr><td class="original-text">Kā man jākāpj Tā kā uz zirga ar kreiso tā kā nē nu Ilze ir gatava moto sezonai tā izskatās vai ne</td><td class="translated-text">Как мне садиться? Как на лошадь, с левой стороны... ну, Илзе готова к мотосезону, так ведь выглядит?</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

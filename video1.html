@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обучающий материал: Биологическое сельское хозяйство в Латвии</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+
+        /* Видео-заголовок (фиксированный сверху) */
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: #000;
+            aspect-ratio: 16 / 9;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Основной контент с динамическим отступом */
+        .content {
+            margin-top: 58vw; /* Автоматический отступ под размер видео на мобильных */
+            padding: 15px;
+        }
+
+        /* Стили таблицы */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            vertical-align: top;
+            width: 50%;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: white;
+            text-align: left;
+        }
+
+        /* Шрифт оригинала — 600 вес */
+        .original-text {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .translation-text {
+            font-weight: 400;
+            color: #444;
+        }
+
+        /* Мобильные устройства (ширина < 600px) */
+        @media (max-width: 600px) {
+            td {
+                font-size: 0.9em;
+            }
+        }
+
+        /* Горизонтальный режим (Планшеты/ПК) */
+        @media (orientation: landscape) {
+            .video-container {
+                width: 45%;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+            }
+
+            .content {
+                margin-top: 0;
+                margin-left: 45%;
+                height: 100vh;
+                overflow-y: auto;
+            }
+
+            table {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/vIx8MIe_Qcs" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+        </iframe>
+    </div>
+
+    <div class="content">
+        <h1>Daudzas saimniecības Latvijā apsver domu pāriet uz bioloģisku produktu audzēšanu</h1>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Latviešu</th>
+                    <th>Русский</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="original-text">Saimnieks Mārtiņš noliktavā rāda dažādu kultūrsēklas ko drīzumā lika zemē.</td>
+                    <td class="translation-text">Хозяин Мартиньш показывает на складе семена различных культур, которые вскоре посадит в землю.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Kādreizējais rīdzinieks pirms aptuveni 15 gadiem ieradās Valmieras novada Kaugura pagastā un uzreiz orientējās uz ekoloģisko ražošanu.</td>
+                    <td class="translation-text">Бывший рижанин около 15 лет назад приехал в Каугурскую волость Валмиерского края и сразу ориентировался на экологическое производство.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Šobrīd no 300 hektāru plašiem laukiem iegūtā produkcija pārsvarā tiek eksportēta.</td>
+                    <td class="translation-text">На данный момент продукция, полученная с полей площадью 300 гектаров, в основном экспортируется.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Pagājušā gadā galvenie bija zirņi un griķi. Tur ir kaut kādi no katras virs 100 tonnā tīro sēklu.</td>
+                    <td class="translation-text">В прошлом году основными были горох и гречка. Там более 100 тонн чистых семян каждой культуры.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Man visi lauki ir tikai sēklu audzēšanas. Es esmu specializējies uz to.</td>
+                    <td class="translation-text">Все мои поля предназначены только для выращивания семян. Я на этом специализируюсь.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Un aiziet arī principā eksportā viss, jo Latvijas sēklu tirgus ir principā apstājies.</td>
+                    <td class="translation-text">И в принципе всё уходит на экспорт, потому что латвийский рынок семян практически остановился.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Griķi aiziet uz Lietuvu, tālāk var iet uz Vāciju. Pagājušā gadā gāja uz Itāliju.</td>
+                    <td class="translation-text">Гречиха идет в Литву, дальше может идти в Германию. В прошлом году шла в Италию.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Savukārt Gunārs dzīvo Madonas novadā un kopš 2011. gada nodarbojas ar bioloģisko gaļas liellopu audzēšanu.</td>
+                    <td class="translation-text">В свою очередь, Гунарс живет в Мадонском крае и с 2011 года занимается биологическим разведением мясного крупного рогатого скота.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Šobrīd saimniecībā mīt aptuveni 600 liellopu.</td>
+                    <td class="translation-text">Сейчас в хозяйстве обитает около 600 голов скота.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Mūsu galvenie klienti ir mājsaimniecības tepat Latvijā. Mēs esam mēģinājuši arī strādāt ar restorāniem, bet restorāniem ir tā specifika, ka viņi vēlas tādus konkrētus griezumus.</td>
+                    <td class="translation-text">Наши основные клиенты — это домохозяйства здесь же в Латвии. Мы пробовали работать и с ресторанами, но у ресторанов есть своя специфика: они хотят конкретные виды разделки.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Bet mums ir mērķis pārdot nu visu, visu, visu, ko no dzīvnieka var iegūt.</td>
+                    <td class="translation-text">А у нас цель — продать ну абсолютно всё, что можно получить от животного.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Strādājam pie eksporta plāniem. Esam izveidojuši arī zīmolu eksportam. Šobrīd esam uzsākuši pirmos soļus Vācijas tirgū.</td>
+                    <td class="translation-text">Работаем над экспортными планами. Создали бренд для экспорта. На данный момент сделали первые шаги на рынке Германии.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Ja 2021. gadā nozarē bija vairāk nekā 4000 bioloģiskās lauksaimniecības produktu ražotāju, tad turpmākajos gados bija kritums.</td>
+                    <td class="translation-text">Если в 2021 году в отрасли было более 4000 производителей биологической сельскохозяйственной продукции, то в последующие годы был спад.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Tagad tendence ir atkal augoša, īpaši bioloģiskās zemes platību ziņā, kas 2025. gadā pārsniedza 327 000 hektāru.</td>
+                    <td class="translation-text">Сейчас тенденция снова растущая, особенно в плане площадей биологических земель, которые в 2025 году превысили 327 000 гектаров.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Lauksaimnieki arī meklē iespējas, kā samazināt atkarību no ārējiem resursiem.</td>
+                    <td class="translation-text">Фермеры также ищут возможности, как снизить зависимость от внешних ресурсов.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Bioloģiskās metodes ir tieši tas, kas šo nosacīto brīvību sniedz, jo nav jāpērk ne pesticīdi, ne ķīmiskie minerālmēsli.</td>
+                    <td class="translation-text">Биологические методы — это именно то, что дает эту относительную свободу, так как не нужно покупать ни пестициды, ни химические минеральные удобрения.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Līdz ar to lauksaimnieki var strādāt vairāk koncentrējoties uz saimniecības iekšējiem cikliem un samazinot atkarību no ārējiem resursiem.</td>
+                    <td class="translation-text">Благодаря этому фермеры могут работать, больше концентрируясь на внутренних циклах хозяйства и снижая зависимость от внешних ресурсов.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Šogad es esmu dzirdējis, ka arī lielas saimniecības nāk klāt uz bioloģisko, jo ja viņi paskatās uz bioloģisko, tad izskatās, ka mums drusku labāk iet nekā konvencionālajiem.</td>
+                    <td class="translation-text">В этом году я слышал, что и крупные хозяйства переходят на био, потому что, если посмотреть на биологическое хозяйство, кажется, что дела у нас идут чуть лучше, чем у конвенциональных.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Mums nav tie parādi par minerālmēsliem un pesticīdiem.</td>
+                    <td class="translation-text">У нас нет этих долгов за минеральные удобрения и пестициды.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Par liellopu gaļas nozari es varu teikt arī, ka lauksaimnieki ir diezgan optimistiski.</td>
+                    <td class="translation-text">Про отрасль говядины я также могу сказать, что фермеры настроены довольно оптимистично.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Gaļas cenas pēdējā laikā ir bijušas diezgan augstas un tagad arī saimniecības sāk domāt par tādu nozari kā liellopu nobarošana, par ko agrāk vispār nerunāja.</td>
+                    <td class="translation-text">Цены на мясо в последнее время были довольно высокими, и сейчас хозяйства начинают задумываться о такой отрасли, как откорм скота, о чем раньше вообще не говорили.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Tā kā ir jūtamas tādas tendences. Precīzi šīs nozares eksporta dati nav pieejami.</td>
+                    <td class="translation-text">Так что такие тенденции чувствуются. Точные данные по экспорту этой отрасли недоступны.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Tomēr lielākā daļa saimniecību eksportē graudus vai pārstrādātus produktus. Mērķis ir paplašināt šo jomu.</td>
+                    <td class="translation-text">Тем не менее, большая часть хозяйств экспортирует зерно или переработанные продукты. Цель — расширить эту сферу.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

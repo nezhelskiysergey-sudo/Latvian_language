@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обучающий урок: Донорство крови в Латвии</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+        }
+
+        /* Видео-заголовок */
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: #000;
+            aspect-ratio: 16 / 9;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Основной контент */
+        .content {
+            margin-top: 58vw; /* Динамический отступ для мобильных (16:9 ~ 56.25vw + запас) */
+            padding: 15px;
+        }
+
+        /* Таблица */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+            width: 50%;
+        }
+
+        th {
+            background-color: #e21e26;
+            color: white;
+            text-transform: uppercase;
+            font-size: 0.8em;
+        }
+
+        .original-text {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .translated-text {
+            color: #555;
+        }
+
+        /* Адаптивность для маленьких экранов */
+        @media (max-width: 600px) {
+            table {
+                font-size: 0.9em;
+            }
+            th, td {
+                padding: 8px;
+            }
+        }
+
+        /* Горизонтальный режим (Планшеты/ПК) */
+        @media (orientation: landscape) {
+            .video-container {
+                width: 45%;
+                height: 100vh;
+            }
+
+            .content {
+                margin-top: 0;
+                margin-left: 45%;
+                height: 100vh;
+                overflow-y: auto;
+                padding: 20px;
+            }
+            
+            table {
+                margin-bottom: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="video-container">
+        <iframe 
+            src="https://www.youtube.com/embed/QAeoy8c0pSY" 
+            title="YouTube video player" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <div class="content">
+        <h1>Pieaug asinsdonoru atsaucība / Донорская активность растет</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Latviešu (Original)</th>
+                    <th>Русский (Перевод)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="original-text">Jau šobrīd visā valstī kritiski zems ir Rēzus negatīvo asinsgrupu krājums.</td>
+                    <td class="translated-text">Уже сейчас по всей стране критически низок запас групп крови с отрицательным резус-фактором.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Donori ir atsaucīgi. Pērn sasniegts augstākais atsaucības rādītājs 13 gadu laikā, taču arī pieprasījumi no slimnīcām nemazinās.</td>
+                    <td class="translated-text">Доноры отзывчивы. В прошлом году был достигнут самый высокий показатель активности за последние 13 лет, однако и запросы от больниц не уменьшаются.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Pati asins nodošanas procedūra prasa vidēji 15 minūtes jūsu dārgā laika.</td>
+                    <td class="translated-text">Сама процедура сдачи крови занимает в среднем 15 минут вашего драгоценного времени.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Labā ziņa par to pienākas viena apmaksāta brīvdiena.</td>
+                    <td class="translated-text">Хорошая новость — за это полагается один оплачиваемый выходной день.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Renāta Ilenāne saka tas viņai ir ļoti būtiski palīdzēt kādam bērnam vai pieaugušajam, kuram tas tiešām var glābt dzīvību.</td>
+                    <td class="translated-text">Рената Иленане говорит, что для нее очень важно помочь какому-нибудь ребенку или взрослому, которому это действительно может спасти жизнь.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Šodien bija mana 40 reize kā es nāku ziedot. Savā brīvdienā vienmēr cenšos atnākt un noziedot.</td>
+                    <td class="translated-text">Сегодня был мой 40-й раз, когда я прихожу сдавать кровь. В свой выходной всегда стараюсь прийти и совершить пожертвование.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Tas man dod tādu motivējošu dienesta sajūtu. Un pēc tam taču ir arī brīvdiena pie atvaļinājuma vesela apmaksāta diena.</td>
+                    <td class="translated-text">Это дает мне такое мотивирующее чувство служения. И после этого ведь есть еще и выходной к отпуску — целый оплачиваемый день.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Jā savā brīvdienā es iegūstu nākamo brīvdienu.</td>
+                    <td class="translated-text">Да, в свой выходной я зарабатываю следующий выходной.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Bet tieši tuvojošās maija brīvdienas rada uztraukumus par asins krājumiem.</td>
+                    <td class="translated-text">Но именно приближающиеся майские праздники вызывают беспокойство по поводу запасов крови.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Nākamnedēļ ir tikai četras darba dienas kam sekos četras brīvdienas. Daudziem būs atpūta, slimnīcās nē.</td>
+                    <td class="translated-text">На следующей неделе всего четыре рабочих дня, за которыми последуют четыре выходных. У многих будет отдых, но в больницах — нет.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Ir tā ka ir diezgan samazinājies tieši rēzus negatīvo asins grupu asins krājums.</td>
+                    <td class="translated-text">Дело в том, что довольно сильно сократились запасы именно отрицательных резус-групп крови.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Tradicionāli universālā grupa nultais rēzus negatīvs arī A grupa rēzus negatīvais B grupa rēzus negatīvais un arī AB grupa rēzus negatīvais.</td>
+                    <td class="translated-text">Традиционно это универсальная нулевая группа (первая) резус-отрицательная, а также группа А (вторая), группа B (третья) и группа AB (четвертая) — все с отрицательным резусом.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Tā kā šo rēzus negatīvo asins grupu donorus mēs ļoti gaidām šobrīd papildināt krājumus.</td>
+                    <td class="translated-text">Так что доноров этих отрицательных групп крови мы очень ждем сейчас для пополнения запасов.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Un protams mēs gaidām visu arī pozitīvo asins grupu donorus, jo nāk četras brīvdienas jau un mums ir ļoti jādomā par to lai mēs varētu tiešām šos asins krājumus brīvdienu laikā arī droši nodrošināt un slimnīcām un pacientiem izsniegt.</td>
+                    <td class="translated-text">И, конечно, мы ждем доноров всех положительных групп крови, так как впереди четыре выходных, и нам нужно серьезно думать о том, чтобы мы могли действительно надежно обеспечить эти запасы крови в праздники и выдать их больницам и пациентам.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">30 Mēs arī strādājam saīsināto darba dienu tāpēc aicinām skatīties donors.lv mūsu mājaslapā kur visi darba laiki visi izbraukumi grafiki un arī vietas kur mēs brauksim gan ar mobilo autobusu gan ar stacionāro izbraukumu būs pieejams un redzams.</td>
+                    <td class="translated-text">30-го числа мы также работаем сокращенный рабочий день, поэтому призываем смотреть на нашем сайте donors.lv, где будет доступно всё время работы, графики всех выездов и места, куда мы отправимся как на мобильном автобусе, так и со стационарными выездами.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Nākamnedēļ asinis var ziedot četras dienas bet ceturtdien donoru punktu darba laiks ir saīsināts.</td>
+                    <td class="translated-text">На следующей неделе кровь можно сдать в течение четырех дней, но в четверг время работы донорских пунктов сокращено.</td>
+                </tr>
+                <tr>
+                    <td class="original-text">Tālāk visi nodošanas punkti būs slēgti līdz otrdienas 5 maija rītam. Žepick Latvijas Televīzija.</td>
+                    <td class="translated-text">Далее все пункты приема будут закрыты до утра вторника, 5 мая. Жепицк, Латвийское телевидение.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

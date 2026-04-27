@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обучающий материал: Технологии защиты птиц</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        /* Видео-заголовок (фиксированный сверху) */
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: #000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .video-container iframe {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border: none;
+            display: block;
+        }
+
+        /* Основной контент с динамическим отступом */
+        .content {
+            margin-top: 58vw; /* Динамический отступ для мобильных устройств */
+            padding: 20px;
+        }
+
+        /* Стили таблицы */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+            width: 50%;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: white;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 1px;
+        }
+
+        /* Шрифт для оригинала (600 вес) */
+        .original-text {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .translation-text {
+            color: #555;
+        }
+
+        /* Мобильные устройства (ширина < 600px) */
+        @media (max-width: 600px) {
+            table {
+                font-size: 0.9em;
+            }
+            th, td {
+                padding: 10px;
+            }
+        }
+
+        /* Горизонтальный режим (Планшеты/ПК) */
+        @media (orientation: landscape) {
+            .video-container {
+                width: 45%;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+            }
+
+            .video-container iframe {
+                height: 100%;
+                aspect-ratio: auto;
+            }
+
+            .content {
+                margin-top: 0;
+                margin-left: 45%;
+                height: 100vh;
+                overflow-y: auto;
+                padding: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="video-container">
+    <iframe src="https://www.youtube.com/embed/Q4N7wW67WiY" 
+            title="YouTube video player" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+    </iframe>
+</div>
+
+<div class="content">
+    <h1>Jauna tehnoloģija putnu aizsardzībai</h1>
+    <p>Изучите лексику из видеосюжета о новой технологии защиты птиц в ветряных парках.</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Latviešu valoda</th>
+                <th>Русский перевод</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="original-text">Būvējot vēja parkus tie atstāj arī ietekmi uz putniem stāsta ornitologs Ritvars Rekmanis.</td>
+                <td class="translation-text">При строительстве ветряных парков они также оказывают влияние на птиц, рассказывает орнитолог Ритварс Рекманис.</td>
+            </tr>
+            <tr>
+                <td class="original-text">Tomēr viņuprāt vējparka ietekme uz dabu ir krietni mazāka kā hidroelektrostacijām.</td>
+                <td class="translation-text">Однако, по их мнению, влияние ветряного парка на природу значительно меньше, чем у гидроэлектростанций.</td>
+            </tr>
+            <tr>
+                <td class="original-text">Līdzīgi kā elektrolīnijām autotransportam stikla lēkām nu lieliem logiem būs kaut kādas mirstība.</td>
+                <td class="translation-text">Подобно линиям электропередач, автотранспорту, стеклянным поверхностям — ну, большим окнам — будет определенная смертность.</td>
+            </tr>
+            <tr>
+                <td class="original-text">Tas tas ir vienkārši neizbēgami.</td>
+                <td class="translation-text">Это просто неизбежно.</td>
+            </tr>
+            <tr>
+                <td class="original-text">Ir jūtīgākas sugas kas ir piemēram lielie plesīgie putni. Jā, lijas, klijas, piekūni, klijāns, jūras ērglis, tad protams sikspārņiem būs ietekme.</td>
+                <td class="translation-text">Есть более чувствительные виды, такие как, например, крупные хищные птицы. Да, луни, коршуны, соколы, сарычи, орланы-белохвосты, и, конечно, будет влияние на летучих мышей.</td>
+            </tr>
+            <tr>
+                <td class="original-text">Rekmanis stāsta tādēļ pasaulē tiek izmantotas dažādas sensoru tehnoloģijas kas ļauj šo ietekmi mazināt.</td>
+                <td class="translation-text">Рекманис рассказывает, что поэтому в мире используются различные сенсорные технологии, позволяющие снизить это влияние.</td>
+            </tr>
+            <tr>
+                <td class="original-text">Uzņēmumu "Latvenergo" un "Latvijas mobilais telefons" šobrīd izstrādā jaunu ierīci veidojot Baltijas mērogā unikālu putnu aizsardzības tehnoloģiju.</td>
+                <td class="translation-text">Предприятия "Latvenergo" и "Latvijas mobilais telefons" сейчас разрабатывают новое устройство, создавая уникальную в масштабах Балтии технологию защиты птиц.</td>
+            </tr>
+            <tr>
+                <td class="original-text">Līdzšinējie risinājumi pamatā ir balstīti datorredzē. Tātad ar kamerām atpazīst šīs lidojošas putnu šķirnes.</td>
+                <td class="translation-text">Существующие решения в основном базируются на компьютерном зрении. То есть с помощью камер распознаются виды этих летящих птиц.</td>
+            </tr>
+            <tr>
+                <td class="original-text">Tas ko mēs šajā projektā darām ir ka mēs pievienojam radaru kā tehnoloģiju lai spētu laicīgāk identificēt to ka kaut kas tuvojas.</td>
+                <td class="translation-text">То, что мы делаем в этом проекте — мы добавляем радар как технологию, чтобы иметь возможность вовремя идентифицировать, что что-то приближается.</td>
+            </tr>
+            <tr>
+                <td class="original-text">Un tad attiecīgi ar datorredzes tehnoloģiju arī identificēt kādas putnu sugas tuvojas. Nu un tad jau pieņemt lēmumus ko ko tālāk darīt.</td>
+                <td class="translation-text">И тогда соответственно с помощью технологии компьютерного зрения также идентифицировать, какие виды птиц приближаются. Ну и затем уже принимать решения, что делать дальше.</td>
+            </tr>
+            <tr>
+                <td class="original-text">Šis viss risinājums darbojas ar mākslīgo intelektu. Tātad dati tiek laicīgi pamanīti, atpazīti.</td>
+                <td class="translation-text">Все это решение работает с искусственным интеллектом. Таким образом, данные вовремя замечаются и распознаются.</td>
+            </tr>
+            <tr>
+                <td class="original-text">Uzņēmumā "Latvenergo" stāsta kāpēc ir nepieciešams uzlabot līdz šim pasaulē ierasti izmantotās tehnoloģijas.</td>
+                <td class="translation-text">В компании "Latvenergo" рассказывают, почему необходимо улучшать технологии, которые до сих пор привычно использовались в мире.</td>
+            </tr>
+            <tr>
+                <td class="original-text">Šīs sistēmas ļoti labi strādā labos redzamības apstākļos. Savukārt mēs ļoti labi zinām kad putni pārvietojas arī sliktākos redzamības apstākļos tajā skaitā naktīs.</td>
+                <td class="translation-text">Эти системы очень хорошо работают в условиях хорошей видимости. В свою очередь, мы прекрасно знаем, что птицы перемещаются и в худших условиях видимости, в том числе по ночам.</td>
+            </tr>
+            <tr>
+                <td class="original-text">Un naktīs un sliktos redzamības apstākļos šī šo sistēmu efektivitāte zūd.</td>
+                <td class="translation-text">А ночью и в условиях плохой видимости эффективность этих систем пропадает.</td>
+            </tr>
+            <tr>
+                <td class="original-text">Radara tehnoloģija ļaus putnus fiksēt krietni lielākā attālumā proti vēl pirms tie ir nonākuši kameru redzamības zonā.</td>
+                <td class="translation-text">Технология радара позволит фиксировать птиц на значительно большем расстоянии, а именно еще до того, как они попали в зону видимости камер.</td>
+            </tr>
+            <tr>
+                <td class="original-text">Šī sistēma tiks uzlikta uz visu vējparku un tiks apstādinātas konkrētās turbīnas ar kurām būs potenciāli iespējama šī sadursme.</td>
+                <td class="translation-text">Эта система будет установлена на весь ветряной парк, и будут остановлены конкретные турбины, с которыми потенциально возможно это столкновение.</td>
+            </tr>
+            <tr>
+                <td class="original-text">Sākotnējā stadijā šis risinājums tiek veidots tā lai tas būtu piemērots Baltijas reģionam īpašu uzmanību pievēršot šeit esošajiem lielajiem planētājai putniem un aizsargājamām sugām.</td>
+                <td class="translation-text">На начальной стадии это решение создается так, чтобы оно подходило для Балтийского региона, уделяя особое внимание обитающим здесь крупным парящим птицам и защищаемым видам.</td>
+            </tr>
+            <tr>
+                <td class="original-text">Arī stārķiem, ērgļiem, klijāniem, dzērvēm kā arī gulbjiem un zosīm.</td>
+                <td class="translation-text">Также аистам, орлам, сарычам, журавлям, а также лебедям и гусям.</td>
+            </tr>
+            <tr>
+                <td class="original-text">Tomēr mērķis ir ar laiku tehnoloģiju attīstīt tā lai to varētu izmantot arī citos reģionos.</td>
+                <td class="translation-text">Однако цель состоит в том, чтобы со временем развить технологию так, чтобы ее можно было использовать и в других регионах.</td>
+            </tr>
+            <tr>
+                <td class="original-text">Uldis Birziņš, Niklāvs Rubenis, Latvijas Televīzija.</td>
+                <td class="translation-text">Улдис Бирзиньш, Никлавс Рубенис, Латвийское телевидение.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

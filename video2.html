@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обучающий материал: Развитие завода VEREMS</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* 2. Адаптивный дизайн (CSS) */
+        
+        /* Видео-заголовок: фиксированный сверху */
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: #000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .video-container iframe {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border: none;
+            display: block;
+        }
+
+        /* Динамический отступ текста для вертикального режима */
+        .content {
+            margin-top: 58vw; 
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Таблица */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            width: 50%;
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            line-height: 1.5;
+        }
+
+        th {
+            background-color: #004a99;
+            color: white;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 1px;
+        }
+
+        /* Шрифты: Оригинал 600 веса */
+        .lang-orig {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .lang-ru {
+            font-weight: 400;
+            color: #444;
+        }
+
+        /* Мобильные устройства (ширина < 600px) */
+        @media (max-width: 600px) {
+            table {
+                font-size: 0.9em;
+            }
+            th, td {
+                padding: 10px;
+            }
+        }
+
+        /* Горизонтальный режим (Планшеты/ПК) */
+        @media (orientation: landscape) {
+            .video-container {
+                width: 45%;
+                height: 100vh;
+                position: fixed;
+            }
+
+            .video-container iframe {
+                height: 100%;
+                aspect-ratio: auto; /* Заполняет контейнер по высоте */
+            }
+
+            .content {
+                margin-top: 0;
+                margin-left: 45%;
+                width: 55%;
+                height: 100vh;
+                overflow-y: auto;
+                padding: 40px;
+            }
+            
+            table {
+                margin-bottom: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="video-container">
+    <iframe src="https://www.youtube.com/embed/J_uZEMlEsuQ" 
+            title="YouTube video player" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+    </iframe>
+</div>
+
+<div class="content">
+    <h1>Rūpnīca “VEREMS” paplašinājusies / Завод «VEREMS» расширился</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Latvian (Original)</th>
+                <th>Russian (Translation)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="lang-orig">Rūpnīca Verems atrodas Rēzeknes piepilsētā. Vērienīgais attīstības projekts te uzsākts pirms nepilniem 10 gadiem.</td>
+                <td class="lang-ru">Завод Verems находится в пригороде Резекне. Масштабный проект развития был начат здесь менее 10 лет назад.</td>
+            </tr>
+            <tr>
+                <td class="lang-orig">Savukārt ražošana testēšanas režīmā sākta pirms pusotra gada. Šodien rūpnīcas paplašinājums arī svinīgi atklāts.</td>
+                <td class="lang-ru">В свою очередь, производство в тестовом режиме было запущено полтора года назад. Сегодня расширение завода было торжественно открыто.</td>
+            </tr>
+            <tr>
+                <td class="lang-orig">Verems paplašināšanās projekts ir viens no apjomīgākajiem investīciju projektiem pēdējo gadu laikā ne vien Latgalē, bet visā Latvijā.</td>
+                <td class="lang-ru">Проект расширения Verems является одним из самых масштабных инвестиционных проектов последних лет не только в Латгалии, но и во всей Латвии.</td>
+            </tr>
+            <tr>
+                <td class="lang-orig">Ieguldījumu apjoms sasniedz 100 miljonus eiro. Finansējums ir nācis no Eiropas investīciju bankas, ir valsts atbalsts caur Altum un arī uzņēmuma pašlīdzekļi.</td>
+                <td class="lang-ru">Объем вложений достигает 100 миллионов евро. Финансирование поступило от Европейского инвестиционного банка, в виде государственной поддержки через Altum, а также из собственных средств предприятия.</td>
+            </tr>
+            <tr>
+                <td class="lang-orig">Tie ir 10 miljoni valsts atbalsts. Kāpēc tieši Latgalē? Ja mēs paskatāmies uz pārējiem Latvijas reģioniem, piemēram, Vidzemi, kur kokrūpniecības nozare sastāda vairāk nekā 20% no pievienotās vērtības, tad Latgalē tas ir tikai 10%.</td>
+                <td class="lang-ru">Государственная поддержка составила 10 миллионов. Почему именно в Латгалии? Если мы посмотрим на другие регионы Латвии, например, Видземе, где лесная промышленность составляет более 20% добавочной стоимости, то в Латгалии это всего 10%.</td>
+            </tr>
+            <tr>
+                <td class="lang-orig">Paplašinot rūpnīcu Verems, ir uzbūvēts jauns korpuss teju 2 hektāru platībā. Ierasto metāla būvkonstrukciju vietā te izmantots koks.</td>
+                <td class="lang-ru">В рамках расширения завода Verems был построен новый корпус площадью почти 2 гектара. Вместо привычных металлических конструкций здесь использовано дерево.</td>
+            </tr>
+            <tr>
+                <td class="lang-orig">Iegādātas arī jaunas modernas iekārtas, kas, kā iecerēts, ļaus ne vien gandrīz dubultot ražošanas jaudu, bet arī attīstīt inovatīvus saplākšņa izstrādājumus.</td>
+                <td class="lang-ru">Также закуплено новое современное оборудование, которое, как планируется, позволит не только почти удвоить производственную мощность, но и развивать инновационные изделия из фанеры.</td>
+            </tr>
+            <tr>
+                <td class="lang-orig">Pirms tam mēs ražojām piecus dažādus formātus, līmējām, ja tagad šobrīd mums jau ir astoņi formāti, ko mēs piedāvājam saviem klientiem.</td>
+                <td class="lang-ru">До этого мы производили пять различных форматов, склеивали, а сейчас у нас уже восемь форматов, которые мы предлагаем своим клиентам.</td>
+            </tr>
+            <tr>
+                <td class="lang-orig">Tas izmēru klāsts, kas mums šobrīd var teikt ir samērā unikāls, un mēs esam atšķirīgi ar to mūsu lielformāta saplākšņi, jo klients var dabūt labāku lietderīgo iznākumu no tās loksnes.</td>
+                <td class="lang-ru">Тот ассортимент размеров, который у нас сейчас есть, можно сказать, уникален, и мы отличаемся нашей крупноформатной фанерой, так как клиент может получить лучший полезный выход из листа.</td>
+            </tr>
+            <tr>
+                <td class="lang-orig">Šobrīd Latvijas Finiera meitas uzņēmumā Verems strādā vairāk nekā 400 darbinieki. Daudziem uzņēmumā ir vairāku gadu pieredze un viņi zina stāstīt, ka darba apstākļi ir krasi mainījušies.</td>
+                <td class="lang-ru">На данный момент на дочернем предприятии Latvijas Finieris — Verems — работают более 400 сотрудников. У многих многолетний опыт, и они отмечают, что условия труда резко изменились.</td>
+            </tr>
+            <tr>
+                <td class="lang-orig">Vide kļuvusi daudz patīkamāka, taču izaicinājums ir tehnoloģiju apgūšana. Nu vairāk ir palicis automatizācijā, visādi procesi nākuši klāt.</td>
+                <td class="lang-ru">Среда стала гораздо приятнее, однако вызовом является освоение технологий. Сейчас стало больше автоматизации, добавились различные процессы.</td>
+            </tr>
+            <tr>
+                <td class="lang-orig">Darbs paliek dinamiskāks. Rutīnas katrā ziņā nav. Katra diena ir savādāka. Jā, darbinieku paliek vairāk un līdz ar to arī atbildības vairāk.</td>
+                <td class="lang-ru">Работа становится динамичнее. Рутины в любом случае нет. Каждый день разный. Да, сотрудников становится больше, и вместе с этим растет ответственность.</td>
+            </tr>
+            <tr>
+                <td class="lang-orig">Uz doto brīdi darba ikdiena ir izaicinājuma pilna, bet pateicoties kolēģu atbalstam, zināšanām ir iespējams visas neskaidrības atrisināt.</td>
+                <td class="lang-ru">На данный момент будни полны вызовов, но благодаря поддержке коллег и знаниям удается решить все неясности.</td>
+            </tr>
+            <tr>
+                <td class="lang-orig">Ļoti daudz ko pārņem iekārtas, līdz ar to no cilvēkiem tiek noņemta kaut kāda kvalitātes vērtēšanas funkcija daļēji, bet daudz ko iekārtās ir iespējams tagad kontrolēt.</td>
+                <td class="lang-ru">Очень многое перенимает оборудование, поэтому с людей частично снимается функция оценки качества, но теперь многое можно контролировать в самих установках.</td>
+            </tr>
+            <tr>
+                <td class="lang-orig">Lai arī darbus arvien vairāk pārņem robotizētas iekārtas, uzņēmumā uzsver, ka bez cilvēkresursiem neiztiks arī nākotnē.</td>
+                <td class="lang-ru">Хотя работу все чаще перенимает роботизированное оборудование, на предприятии подчеркивают, что без человеческих ресурсов не обойтись и в будущем.</td>
+            </tr>
+            <tr>
+                <td class="lang-orig">Bez cilvēkiem rūpnīcas nepastāv un es domāju, ka arī nepastāvēs. Runa ir par efektivitāti. Cik daudz katrs cilvēks var izdarīt. Šo darba vietu līmenis noteikti ir pacēlies augstāk.</td>
+                <td class="lang-ru">Без людей заводы не существуют, и я думаю, что не будут существовать. Речь идет об эффективности. О том, сколько может сделать каждый человек. Уровень этих рабочих мест определенно стал выше.</td>
+            </tr>
+            <tr>
+                <td class="lang-orig">Verem saražoto produkciju eksportē uz 40 valstīm. Liela daļa aiziet uz Vāciju, Franciju un Angliju, kur saplāksni izmanto celtniecībā un transporta industrijā.</td>
+                <td class="lang-ru">Продукция Verems экспортируется в 40 стран. Большая часть уходит в Германию, Францию и Англию, где фанера используется в строительстве и транспортной индустрии.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
+```
+
+
+http://googleusercontent.com/youtube_content/0
