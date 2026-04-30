@@ -11,7 +11,7 @@
             --accent-color: #34495e;
             --quote-bg: #f9f9f9;
             --quote-border: #ccd1d1;
-            --btn-color: #27ae60; /* Зеленый цвет для кнопки "старта" */
+            --btn-color: #27ae60; 
             --btn-hover: #2ecc71;
         }
 
@@ -25,6 +25,43 @@
             padding: 40px 20px;
         }
 
+        /* Контейнер для боковой кнопки */
+        .cta-side-container {
+            position: fixed;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 9999;
+        }
+
+        .nav-button-side {
+            display: block;
+            /* Вертикальный текст */
+            writing-mode: vertical-lr;
+            transform: rotate(180deg);
+            
+            padding: 25px 12px;
+            background-color: var(--btn-color);
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            
+            /* Скругление только внешних углов */
+            border-radius: 0 10px 10px 0;
+            
+            box-shadow: 4px 0 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-button-side:hover {
+            background-color: var(--btn-hover);
+            padding-left: 20px; /* Кнопка немного "выезжает" */
+            box-shadow: 6px 0 20px rgba(39, 174, 96, 0.4);
+        }
+
+        /* Стили контента */
         .top-content {
             overflow: hidden;
             margin-bottom: 20px;
@@ -69,46 +106,31 @@
             margin-bottom: 40px;
         }
 
-        /* Стили кнопки в конце */
-        .cta-container {
-            text-align: center;
-            margin-top: 40px;
-            padding-bottom: 60px;
-        }
-
-        .nav-button {
-            display: inline-block;
-            padding: 18px 40px;
-            background-color: var(--btn-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px; /* Скругленная кнопка */
-            font-size: 1.2rem;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
-        }
-
-        .nav-button:hover {
-            background-color: var(--btn-hover);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
-        }
-
+        /* Адаптивность для мобильных устройств */
         @media (max-width: 768px) {
+            body {
+                padding-left: 60px; /* Оставляем место под кнопку, чтобы она не закрывала текст */
+            }
+            
             .floated-image {
                 float: none;
                 width: 100%;
                 margin-left: 0;
             }
-            .nav-button {
-                width: 100%;
-                box-sizing: border-box;
+
+            .nav-button-side {
+                font-size: 0.9rem;
+                padding: 15px 8px;
             }
         }
     </style>
 </head>
 <body>
+
+    <!-- Вертикальная кнопка слева -->
+    <div class="cta-side-container">
+        <a href="lessons.html" class="nav-button-side">Приступить к урокам</a>
+    </div>
 
     <div class="top-content">
         <img src="image1.png" alt="Методика изучения языка" class="floated-image">
@@ -121,8 +143,8 @@
             <h2>1. Речевая артикуляция и психологическая уверенность</h2>
             <p>Процесс говорения рассматривается как полноценная физическая тренировка.</p>
             <ul>
-                <li><strong>Принцип «Сложного упражнения»:</strong> Сложные слова невозможно произнести чисто с первого раза. Мы запинаемся, и это естественно.</li>
-                <li><strong>Снятие речевых блоков:</strong> Часто разговорная речь блокируется в обществе из-за подсознательной неуверенности.</li>
+                <li><strong>Принцип «Сложного упражнения»:</strong> Сложные слова невозможно произнести чисто с первого раза.</li>
+                <li><strong>Снятие речевых блоков:</strong> Часто разговорная речь блокируется из-за подсознательной неуверенности.</li>
                 <li><strong>Автоматизм:</strong> Тренируя артикуляцию до автоматизма, мы убираем этот страх.</li>
             </ul>
         </section>
@@ -151,18 +173,14 @@
         <section>
             <h2>4. Лексика: от Хаоса к Автоматизму</h2>
             <ul>
-                <li><strong>Пассивный запас:</strong> Пространство, где слова парят в невесомости. Информации легко «выветривается».</li>
-                <li><strong>Активный запас:</strong> Дорога, по которой вы проехали сотни раз. Прямая нейронная связь через «ячейку памяти».</li>
+                <li><strong>Пассивный запас:</strong> Пространство, где слова парят в невесомости.</li>
+                <li><strong>Активный запас:</strong> Дорога, по которой вы проехали сотни раз.</li>
             </ul>
         </section>
 
         <div class="afterword">
-            <p>Вхождение в процесс обучения часто напоминает прыжок в холодную реку. Сначала — шок, дискомфорт и желание немедленно выйти обратно. Но если вы дадите себе немного времени и не выскочите на берег сразу, тело привыкнет, станет тепло, и сопротивление сменится драйвом от реального прогресса.</p>
+            <p>Вхождение в процесс обучения часто напоминает прыжок в холодную реку. Сначала — шок, дискомфорт и желание немедленно выйти обратно. Но если вы дадите себе немного времени, сопротивление сменится драйвом от реального прогресса.</p>
         </div>
-    </div>
-
-    <div class="cta-container">
-        <a href="lessons.html" class="nav-button">Понятно, приступить к урокам</a>
     </div>
 
 </body>
