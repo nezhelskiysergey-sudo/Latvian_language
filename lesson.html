@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mācību Portāls - Līmeņi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #f5f7fa;
+            --card-bg: #ffffff;
+            --text-dark: #2d3436;
+            --text-muted: #636e72;
+            --accent: #3498db;
+            --border: #dfe6e9;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #2d3436;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* СЕТКА КОЛОНОК */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .level-column {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+            min-height: 500px;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            text-align: center;
+            margin-top: 0;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--bg-color);
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin: 12px 0;
+        }
+
+        .video-link {
+            display: block;
+            padding: 12px 16px;
+            background: var(--bg-color);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            font-weight: 500;
+            line-height: 1.4;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .video-link:hover {
+            border-color: var(--accent);
+            background: #fff;
+            transform: translateX(5px);
+            color: var(--accent);
+        }
+
+        .empty-msg {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 30px;
+            font-style: italic;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 1100px) {
+            .grid-container { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 600px) {
+            .grid-container { grid-template-columns: 1fr; }
+            h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Mācību Portāls</h1>
+        <p class="subtitle">Izvēlieties mācību materiālus atbilstoši savam līmenim</p>
+    </header>
+
+    <div class="grid-container">
+
+        <section class="level-column">
+            <h2>A1</h2>
+            <ul>
+           <div class="empty-msg">Pašlaik materiālu nav</div>
+          <ul>
+        </section>
+
+        <section class="level-column">
+            <h2>A2</h2>
+           <ul>
+                <li><a href="video11.html" class="video-link">Tuta klausās putnus</a></li>
+                <li><a href="video12.html" class="video-link">Tuta vēro kukaiņus</a></li>
+            </ul>
+        </section>
+
+        <section class="level-column">
+            <h2>B1</h2>
+            <ul>
+                <li><a href="video4.html" class="video-link">Moto sezonas sākums</a></li>
+                <li><a href="video5.html" class="video-link">Laika ziņas Latvijā</a></li>
+                <li><a href="video8.html" class="video-link">Asinsdonoru atsaucība</a></li>
+            </ul>
+        </section>
+
+        <section class="level-column">
+            <h2>B2</h2>
+             <ul>
+                <li><a href="video1.html" class="video-link">Bioloģiskā saimniekošana</a></li>
+                <li><a href="video2.html" class="video-link">Rūpnīca “VEREMS”</a></li>
+                <li><a href="video3.html" class="video-link">Altop industriālā parka</a></li>
+                <li><a href="video6.html" class="video-link">Tukuma plātņu ražotne</a></li>
+                <li><a href="video7.html" class="video-link">Zolitūdes ēkas pārbūve</a></li>
+                <li><a href="video9.html" class="video-link">Putnu aizsardzības tehnoloģija</a></li>
+                <li><a href="video10.html" class="video-link">Rail Baltica vadība</a></li>
+            </ul>
+        </section>
+
+    </div>
+
+</body>
+</html>

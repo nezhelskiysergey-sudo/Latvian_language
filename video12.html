@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuta vēro kukaiņus - Pilns teksts ar numerāciju</title>
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --accent-color: #ff4757;
+            --bg-color: #f9f9f9;
+            --text-main: #2c3e50;
+        }
+
+        body { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-color); }
+
+        /* Видео-контейнер */
+        .video-container { position: fixed; top: 0; left: 0; width: 100%; background: #000; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        #player-wrapper { width: 100%; aspect-ratio: 16 / 9; background: #000; }
+
+        /* Панель управления */
+        .controls-bar { position: sticky; top: 0; background: white; padding: 12px; display: flex; justify-content: center; gap: 20px; z-index: 999; border-bottom: 1px solid #ddd; }
+        .check-group { display: flex; align-items: center; font-weight: 500; cursor: pointer; font-size: 14px; }
+        .check-group input { margin-right: 8px; width: 18px; height: 18px; accent-color: var(--primary-color); }
+
+        /* Контент */
+        .content { margin-top: 58vw; padding: 10px; }
+        table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        td { padding: 12px; border-bottom: 1px solid #eee; vertical-align: middle; line-height: 1.5; }
+
+        /* Колонки */
+        .col-num { width: 30px; text-align: center; color: #aaa; font-size: 12px; border-right: 1px solid #f0f0f0; }
+        .col-lv { width: 38%; font-weight: 600; color: var(--text-main); }
+        .col-ru { width: 38%; color: #555; }
+        .col-play { width: 20%; text-align: center; min-width: 95px; }
+
+        .play-unit { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+        .play-btn { background: var(--accent-color); color: white; border: none; width: 45px; height: 35px; border-radius: 6px; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+        .play-btn:active { transform: scale(0.9); }
+        .time-label { font-size: 11px; color: #888; font-family: Arial, sans-serif; white-space: nowrap; }
+
+        .active-row { background-color: #fff9c4 !important; }
+        .hidden { display: none !important; }
+        .full-width { width: 76% !important; }
+
+        @media (orientation: landscape) {
+            .video-container { width: 45%; height: 100vh; }
+            #player-wrapper { height: 100%; aspect-ratio: auto; }
+            .content { margin-top: 0 !important; margin-left: 45%; height: 100vh; overflow-y: auto; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="video-container">
+    <div id="player-wrapper"><div id="player"></div></div>
+</div>
+
+<div class="content">
+    <div class="controls-bar">
+        <label class="check-group"><input type="checkbox" checked onchange="toggleCol('lv', this.checked)"> Latviešu</label>
+        <label class="check-group"><input type="checkbox" checked onchange="toggleCol('ru', this.checked)"> Русский</label>
+    </div>
+
+    <table id="lessonTable">
+        <tbody>
+            <tr data-start="4" data-end="15">
+                <td class="col-num">2</td>
+                <td class="col-lv">Bumbas, krāsas, spēles, lelles, mašīnas un vietas, tutas lietas.</td>
+                <td class="col-ru">Мячи, краски, игры, куклы, машины и места, вещи Туты.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">0:04 - 0:15</span></div></td>
+            </tr>
+            <tr data-start="15" data-end="23">
+                <td class="col-num">3</td>
+                <td class="col-lv">Sveiks, es esmu Tuta, un šodien ar manu draugu Feneku mēs vērojam dabu.</td>
+                <td class="col-ru">Привет, я Тута, и сегодня с моим другом Фенеком мы наблюдаем за природой.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">0:15 - 0:23</span></div></td>
+            </tr>
+            <tr data-start="23" data-end="31">
+                <td class="col-num">4</td>
+                <td class="col-lv">Es no rīta pamodos un domāju, ko lai šodien padara. Un tad es sapratu, es jau</td>
+                <td class="col-ru">Я проснулась утром и думала, чем бы сегодня заняться. И тогда я поняла, что я уже</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">0:23 - 0:31</span></div></td>
+            </tr>
+            <tr data-start="31" data-end="45">
+                <td class="col-num">5</td>
+                <td class="col-lv">šogad nemaz neesmu vēl redzējusi savu pirmo taureni. Es ceru, ka viņš būs dzeltens. Man ļoti patīk dzeltenā krāsa.</td>
+                <td class="col-ru">в этом году ещё совсем не видела свою первую бабочку. Надеюсь, она будет жёлтой. Мне очень нравится жёлтый цвет.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">0:31 - 0:45</span></div></td>
+            </tr>
+            <tr data-start="45" data-end="56">
+                <td class="col-num">6</td>
+                <td class="col-lv">Tu gribētu redzēt pirmo brūnu? Redzēsim.</td>
+                <td class="col-ru">Ты хотел бы увидеть первую коричневую? Посмотрим.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">0:45 - 0:56</span></div></td>
+            </tr>
+            <tr data-start="56" data-end="70">
+                <td class="col-num">7</td>
+                <td class="col-lv">Muša, es teicu, ka es gribu redzēt pirmo taureni, nevis pirmo mušu. Mušas man ir arī mājās, tāpēc es nebūtu nākusi uz šejieni.</td>
+                <td class="col-ru">Муха! Я сказала, что хочу увидеть первую бабочку, а не первую муху. Мухи у меня и дома есть, поэтому я бы сюда не пришла.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">0:56 - 1:10</span></div></td>
+            </tr>
+            <tr data-start="70" data-end="74">
+                <td class="col-num">8</td>
+                <td class="col-lv">Ar ko atšķiras muša no taureņa?</td>
+                <td class="col-ru">Чем отличается муха от бабочки?</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">1:10 - 1:14</span></div></td>
+            </tr>
+            <tr data-start="74" data-end="83">
+                <td class="col-num">9</td>
+                <td class="col-lv">Mušām ir mazi spārniņi. Taureņiem ir lieli spārni. Mušas netaisa z ar muti,</td>
+                <td class="col-ru">У мух маленькие крылышки. У бабочек большие крылья. Мухи не делают «з» ртом,</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">1:14 - 1:23</span></div></td>
+            </tr>
+            <tr data-start="83" data-end="89">
+                <td class="col-num">10</td>
+                <td class="col-lv">viņas taisa ar spārniem. Es tev parādīšu.</td>
+                <td class="col-ru">они делают это крыльями. Я тебе покажу.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">1:23 - 1:29</span></div></td>
+            </tr>
+            <tr data-start="89" data-end="100">
+                <td class="col-num">11</td>
+                <td class="col-lv">Mušām ir mazi spārni, un, kad viņas ātri tos vēzēs, sanāk skaņa z, tā z,</td>
+                <td class="col-ru">У мух маленькие крылья, и когда они быстро ими машут, получается звук «з», вот так: «з»,</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">1:29 - 1:40</span></div></td>
+            </tr>
+            <tr data-start="100" data-end="106">
+                <td class="col-num">12</td>
+                <td class="col-lv">bet taureņi lido tā.</td>
+                <td class="col-ru">а бабочки летают так.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">1:40 - 1:46</span></div></td>
+            </tr>
+            <tr data-start="106" data-end="113">
+                <td class="col-num">13</td>
+                <td class="col-lv">Pamēģini tu arī lēnām vēzē savus lielos spārnus.</td>
+                <td class="col-ru">Попробуй и ты медленно помахать своими большими крыльями.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">1:46 - 1:53</span></div></td>
+            </tr>
+            <tr data-start="113" data-end="121">
+                <td class="col-num">14</td>
+                <td class="col-lv">Kādā krāsā tu esi? Es esmu dzeltenais taurens. Un tagad mušas,</td>
+                <td class="col-ru">Какого ты цвета? Я — жёлтая бабочка. А теперь мухи,</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">1:53 - 2:01</span></div></td>
+            </tr>
+            <tr data-start="121" data-end="132">
+                <td class="col-num">15</td>
+                <td class="col-lv">mazie spārni. Tu arī esi muša?</td>
+                <td class="col-ru">маленькие крылья. Ты тоже муха?</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">2:01 - 2:12</span></div></td>
+            </tr>
+            <tr data-start="132" data-end="136">
+                <td class="col-num">16</td>
+                <td class="col-lv">Ko tu saki?</td>
+                <td class="col-ru">Что ты говоришь?</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">2:12 - 2:16</span></div></td>
+            </tr>
+            <tr data-start="136" data-end="145">
+                <td class="col-num">17</td>
+                <td class="col-lv">Tev taisnība. Šitā māžojoties, mēs jau nekādu taureni neredzēsim. Daba ir jāvēro mierīgi</td>
+                <td class="col-ru">Ты прав. Так дурачась, мы никакой бабочки не увидим. За природой нужно наблюдать спокойно</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">2:16 - 2:25</span></div></td>
+            </tr>
+            <tr data-start="145" data-end="153">
+                <td class="col-num">18</td>
+                <td class="col-lv">ar ausīm un acīm.</td>
+                <td class="col-ru">ушами и глазами.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">2:25 - 2:33</span></div></td>
+            </tr>
+            <tr data-start="153" data-end="161">
+                <td class="col-num">19</td>
+                <td class="col-lv">Kas tur čab?</td>
+                <td class="col-ru">Что там шуршит?</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">2:33 - 2:41</span></div></td>
+            </tr>
+            <tr data-start="161" data-end="169">
+                <td class="col-num">20</td>
+                <td class="col-lv">Tas ir skudru pūznis. Man jau tā likās. Redzi,</td>
+                <td class="col-ru">Это муравейник. Мне так и показалось. Видишь,</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">2:41 - 2:49</span></div></td>
+            </tr>
+            <tr data-start="169" data-end="180">
+                <td class="col-num">21</td>
+                <td class="col-lv">skudru pūsnes ir skudru māja, ko viņas veido no visādām skujām un vēl visādiem dabas materiāliem.</td>
+                <td class="col-ru">муравейник — это дом муравьев, который они строят из хвои и других природных материалов.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">2:49 - 3:00</span></div></td>
+            </tr>
+            <tr data-start="180" data-end="190">
+                <td class="col-num">22</td>
+                <td class="col-lv">Skudras prot sadalīt darbus un arī nodot viena otrai ziņas. Skudras ir ļoti dažādas. Tur ir lielā skudru mamma, kura</td>
+                <td class="col-ru">Муравьи умеют распределять работу и передавать друг другу сообщения. Муравьи очень разные. Там есть большая мама-муравьиха, которая</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">3:00 - 3:10</span></div></td>
+            </tr>
+            <tr data-start="190" data-end="195">
+                <td class="col-num">23</td>
+                <td class="col-lv">dēļ oliņas, no kurām izšķaļas mazās skudriņas. Un tad ir darba skudras.</td>
+                <td class="col-ru">откладывает яички, из которых вылупляются маленькие муравьишки. И еще есть рабочие муравьи.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">3:10 - 3:15</span></div></td>
+            </tr>
+            <tr data-start="195" data-end="203">
+                <td class="col-num">24</td>
+                <td class="col-lv">Darba skudras pieskata mazos skudriņus un arī dodas ārā lielajā apgaitā un nes</td>
+                <td class="col-ru">Рабочие муравьи присматривают за малышами, а также выходят на большой обход и несут</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">3:15 - 3:23</span></div></td>
+            </tr>
+            <tr data-start="203" data-end="210">
+                <td class="col-num">25</td>
+                <td class="col-lv">mājās visādas dabas veltes. Un tad viņām sanāk arvien lielāks un lielāks tas skudru puznītis. Redz, cik viņas ātri,</td>
+                <td class="col-ru">домой разные дары природы. И тогда муравейник у них становится всё больше и больше. Смотри, как быстро,</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">3:23 - 3:30</span></div></td>
+            </tr>
+            <tr data-start="210" data-end="218">
+                <td class="col-num">26</td>
+                <td class="col-lv">ātri kustās, un katrs zina, kur viņai ir jāiet. Skudras vispār ir ļoti gudri kukaiņi.</td>
+                <td class="col-ru">быстро они двигаются, и каждый знает, куда ему идти. Муравьи вообще очень умные насекомые.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">3:30 - 3:38</span></div></td>
+            </tr>
+            <tr data-start="219" data-end="226">
+                <td class="col-num">28</td>
+                <td class="col-lv">Feneks saka, es esmu gudra kā skudra. Paldies par komplimentu.</td>
+                <td class="col-ru">Фенек говорит: «Я умная как муравей». Спасибо за комплимент.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">3:39 - 3:46</span></div></td>
+            </tr>
+            <tr data-start="226" data-end="237">
+                <td class="col-num">29</td>
+                <td class="col-lv">Bet zini, ko vēl skudras protot? Goda vārds. Tu netici?</td>
+                <td class="col-ru">А знаешь, что еще муравьи умеют? Честное слово. Не веришь?</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">3:46 - 3:57</span></div></td>
+            </tr>
+            <tr data-start="237" data-end="245">
+                <td class="col-num">30</td>
+                <td class="col-lv">Pienāk tāds brīdis, ka skudru puiši meklē skudru meitenes, ka viņi meklē pārīti sev. Un tad skudras izlien ārā no</td>
+                <td class="col-ru">Наступает момент, когда мальчики-муравьи ищут девочек-муравьев, ищут себе пару. Тогда муравьи вылезают из</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">3:57 - 4:05</span></div></td>
+            </tr>
+            <tr data-start="245" data-end="257">
+                <td class="col-num">31</td>
+                <td class="col-lv">pūžņa un lien augšā pa zariņiem, pa sienām, pa kokiem. Un tad paceļas gaisā fū un sameklē savu pārīti.</td>
+                <td class="col-ru">гнезда и ползут вверх по веткам, по стенам, по деревьям. И тогда поднимаются в воздух — фух! — и находят свою пару.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">4:05 - 4:17</span></div></td>
+            </tr>
+            <tr data-start="257" data-end="261">
+                <td class="col-num">32</td>
+                <td class="col-lv">Kas ir?</td>
+                <td class="col-ru">Что такое?</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">4:17 - 4:21</span></div></td>
+            </tr>
+            <tr data-start="261" data-end="269">
+                <td class="col-num">33</td>
+                <td class="col-lv">Tev žēl, ka cilvēki neprot lidot un žēl, ka lapsas neprot lidot.</td>
+                <td class="col-ru">Тебе жаль, что люди не умеют летать, и жаль, что лисы не умеют летать.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">4:21 - 4:29</span></div></td>
+            </tr>
+            <tr data-start="269" data-end="274">
+                <td class="col-num">34</td>
+                <td class="col-lv">But zini, Feneka, cilvēki prot lidot.</td>
+                <td class="col-ru">Но знаешь, Фенек, люди умеют летать.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">4:29 - 4:34</span></div></td>
+            </tr>
+            <tr data-start="274" data-end="287">
+                <td class="col-num">35</td>
+                <td class="col-lv">Jā. Nu, kā tu taču atlidoji pie mums no Āfrikas ar lidmašīnu.</td>
+                <td class="col-ru">Да. Ну как же, ты ведь прилетел к нам из Африки на самолете.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">4:34 - 4:47</span></div></td>
+            </tr>
+            <tr data-start="287" data-end="298">
+                <td class="col-num">37</td>
+                <td class="col-lv">Fenek, redzi, rekur ir mans pirmais taurenis.</td>
+                <td class="col-ru">Фенек, смотри, вот и моя первая бабочка.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">4:47 - 4:58</span></div></td>
+            </tr>
+            <tr data-start="298" data-end="301">
+                <td class="col-num">38</td>
+                <td class="col-lv">Un dzeltenā krāsā.</td>
+                <td class="col-ru">И жёлтого цвета.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">4:58 - 5:01</span></div></td>
+            </tr>
+            <tr data-start="301" data-end="308">
+                <td class="col-num">39</td>
+                <td class="col-lv">Es esmu tik priecīga, ka viņš ir dzeltenā krāsā. Tas nozīmē, ka man būs saulaina vasara.</td>
+                <td class="col-ru">Я так рада, что она жёлтого цвета. Это значит, что у меня будет солнечное лето.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">5:01 - 5:08</span></div></td>
+            </tr>
+            <tr data-start="308" data-end="318">
+                <td class="col-num">41</td>
+                <td class="col-lv">Es zinu, ka tu gribēji atrast brūnu, bet priekšā ir visa vasara. Tur noteikte atradīsi daudz skaistu taureņu un citu kukaiņu.</td>
+                <td class="col-ru">Я знаю, что ты хотел найти коричневую, но впереди целое лето. Там ты точно найдешь много красивых бабочек и других насекомых.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">5:08 - 5:18</span></div></td>
+            </tr>
+            <tr data-start="318" data-end="322">
+                <td class="col-num">42</td>
+                <td class="col-lv">Un varbūt tu arī ieraudzīsi taurenīti.</td>
+                <td class="col-ru">И, может быть, ты тоже увидишь бабочку.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">5:18 - 5:22</span></div></td>
+            </tr>
+            <tr data-start="322" data-end="335">
+                <td class="col-num">43</td>
+                <td class="col-lv">Tikai atceries, ka daba jāvēro mierīgi ar actiņām un austiņām. Atā.</td>
+                <td class="col-ru">Только помни, что за природой нужно наблюдать спокойно — глазками и ушками. Пока!</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">5:22 - 5:35</span></div></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    var player;
+    var stopTime = 0;
+    var checkInterval = null;
+    var isPlayingSegment = false;
+
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+            height: '100%', width: '100%', videoId: '6Y7f3UzHdI4',
+            playerVars: { 'autoplay': 0, 'controls': 1, 'rel': 0, 'modestbranding': 1 },
+            events: { 'onStateChange': onPlayerStateChange }
+        });
+    }
+
+    document.querySelectorAll('.play-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const row = this.closest('tr');
+            const start = parseFloat(row.getAttribute('data-start'));
+            const end = parseFloat(row.getAttribute('data-end'));
+            document.querySelectorAll('tr').forEach(r => r.classList.remove('active-row'));
+            row.classList.add('active-row');
+            startSegment(start, end);
+        });
+    });
+
+    function startSegment(start, end) {
+        isPlayingSegment = true;
+        stopTime = end;
+        player.seekTo(start, true);
+        player.playVideo();
+        if (checkInterval) clearInterval(checkInterval);
+        checkInterval = setInterval(function() {
+            if (isPlayingSegment && player.getCurrentTime() >= stopTime) {
+                player.pauseVideo();
+                isPlayingSegment = false;
+                clearInterval(checkInterval);
+            }
+        }, 100);
+    }
+
+    function onPlayerStateChange(event) {
+        if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+            isPlayingSegment = false;
+            if (checkInterval) clearInterval(checkInterval);
+        }
+    }
+
+    function toggleCol(lang, show) {
+        const cells = document.querySelectorAll('.col-' + lang);
+        const otherLang = lang === 'lv' ? 'ru' : 'lv';
+        const otherChecked = document.querySelector(`input[onchange*="'${otherLang}'"]`).checked;
+        cells.forEach(c => show ? c.classList.remove('hidden') : c.classList.add('hidden'));
+        document.querySelectorAll('.col-lv, .col-ru').forEach(c => c.classList.remove('full-width'));
+        if (show && !otherChecked) cells.forEach(c => c.classList.add('full-width'));
+        else if (!show && otherChecked) document.querySelectorAll('.col-' + otherLang).forEach(c => c.classList.add('full-width'));
+    }
+</script>
+</body>
+</html>
+```
