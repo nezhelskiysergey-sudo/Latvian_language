@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutas lietas Londona</title>
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --accent-color: #ff4757;
+            --bg-color: #f9f9f9;
+            --text-main: #2c3e50;
+        }
+
+        body { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-color); }
+
+        .video-container { position: fixed; top: 0; left: 0; width: 100%; background: #000; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        #player-wrapper { width: 100%; aspect-ratio: 16 / 9; background: #000; }
+
+        .controls-bar { position: sticky; top: 0; background: white; padding: 12px; display: flex; justify-content: center; gap: 20px; z-index: 999; border-bottom: 1px solid #ddd; }
+        .check-group { display: flex; align-items: center; font-weight: 500; cursor: pointer; font-size: 14px; }
+        .check-group input { margin-right: 8px; width: 18px; height: 18px; accent-color: var(--primary-color); }
+
+        .content { margin-top: 58vw; padding: 10px; }
+        table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        td { padding: 12px; border-bottom: 1px solid #eee; vertical-align: middle; line-height: 1.5; }
+
+        .col-num { width: 30px; text-align: center; color: #aaa; font-size: 12px; border-right: 1px solid #f0f0f0; }
+        .col-lv { width: 38%; font-weight: 600; color: var(--text-main); }
+        .col-ru { width: 38%; color: #555; }
+        .col-play { width: 20%; text-align: center; min-width: 95px; }
+
+        .play-unit { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+        .play-btn { background: var(--accent-color); color: white; border: none; width: 45px; height: 35px; border-radius: 6px; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+        .play-btn:active { transform: scale(0.9); }
+        .time-label { font-size: 11px; color: #888; font-family: Arial, sans-serif; white-space: nowrap; }
+
+        .active-row { background-color: #fff9c4 !important; }
+        .hidden { display: none !important; }
+        .full-width { width: 76% !important; }
+
+        @media (orientation: landscape) {
+            .video-container { width: 45%; height: 100vh; }
+            #player-wrapper { height: 100%; aspect-ratio: auto; }
+            .content { margin-top: 0 !important; margin-left: 45%; height: 100vh; overflow-y: auto; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="video-container">
+    <div id="player-wrapper"><div id="player"></div></div>
+</div>
+
+<div class="content">
+    <div class="controls-bar">
+        <label class="check-group"><input type="checkbox" checked onchange="toggleCol('lv', this.checked)"> Latviešu</label>
+        <label class="check-group"><input type="checkbox" checked onchange="toggleCol('ru', this.checked)"> Русский</label>
+    </div>
+
+    <table id="lessonTable">
+        <tbody>
+            <tr data-start="4" data-end="11">
+                <td class="col-num">1</td>
+                <td class="col-lv">Bumbas, krāsas, spēles, lelles, mašīnas un vietas, tutas lietas.</td>
+                <td class="col-ru">Мячи, краски, игры, куклы, машины и места — вещи Туты.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">0:04</span></div></td>
+            </tr>
+            <tr data-start="13" data-end="20">
+                <td class="col-num">2</td>
+                <td class="col-lv">[Mūzika]</td>
+                <td class="col-ru">[Музыка]</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">0:13</span></div></td>
+            </tr>
+            <tr data-start="23" data-end="30">
+                <td class="col-num">3</td>
+                <td class="col-lv">Hello, my name is Tuta. Tas nozīmē, sveiks, mani sauc Tuta.</td>
+                <td class="col-ru">Hello, my name is Tuta. Это значит: привет, меня зовут Тута.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">0:23</span></div></td>
+            </tr>
+            <tr data-start="29" data-end="33">
+                <td class="col-num">4</td>
+                <td class="col-lv">Vai tu atpazini, kas tā bija par valodu, kurā tikko runāju?</td>
+                <td class="col-ru">Ты узнал, на каком языке я только что говорила?</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">0:30-0:33</span></div></td>
+            </tr>
+            <tr data-start="33" data-end="40">
+                <td class="col-num">5</td>
+                <td class="col-lv">Tā ir angļu valoda, jo mēs ar lapsiņu šodien esam Londonā, Lielbritānijas galvaspilsētā.</td>
+                <td class="col-ru">Это английский язык, потому что мы с Лисичкой сегодня в Лондоне, столице Великобритании.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">0:33-0:40</span></div></td>
+            </tr>
+            <tr data-start="40" data-end="51">
+                <td class="col-num">6</td>
+                <td class="col-lv">Redzi, mums aiz muguras ir Tower Bridge. Tas nozīmē torņu tilts jeb tauera tilts.</td>
+                <td class="col-ru">Видишь, у нас за спиной Тауэрский мост. Это означает «башенный мост» или Тауэр-бридж.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">0:40-0:51</span></div></td>
+            </tr>
+            <tr data-start="51" data-end="59">
+                <td class="col-num">7</td>
+                <td class="col-lv">Un pa vidu tas mēdz pacelties tā, lai cauri izlaistu kuģus un tad atkal nolaisties.</td>
+                <td class="col-ru">Посередине он может разводиться, чтобы пропускать корабли, а затем снова опускаться.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">0:51-0:59</span></div></td>
+            </tr>
+            <tr data-start="61" data-end="68">
+                <td class="col-num">8</td>
+                <td class="col-lv">Kas ir lapsiņ? Tev Londona mazliet atgādina Rīgu? Kāpēc?</td>
+                <td class="col-ru">Что такое, Лисичка? Тебе Лондон немного напоминает Ригу? Почему?</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">1:01-1:08</span></div></td>
+            </tr>
+            <tr data-start="68" data-end="72">
+                <td class="col-num">9</td>
+                <td class="col-lv">Ā, nu ja, jo arī Londonai cauri plūst upe.</td>
+                <td class="col-ru">Ах, ну да, ведь через Лондон тоже протекает река.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">1:08-1:12</span></div></td>
+            </tr>
+            <tr data-start="72" data-end="77">
+                <td class="col-num">10</td>
+                <td class="col-lv">Mums Rīgai cauri plūst Daugava, bet Londonai cauri plūst Temzas upe.</td>
+                <td class="col-ru">У нас через Ригу течет Даугава, а через Лондон течет река Темза.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">1:12-1:17</span></div></td>
+            </tr>
+            <tr data-start="77" data-end="89">
+                <td class="col-num">11</td>
+                <td class="col-lv">Kas vēl ir atšķirīgs Londonai no Rīgas? Nu, būs jāiet meklēt atšķirības.</td>
+                <td class="col-ru">Что еще отличает Лондон от Риги? Что ж, придется пойти поискать отличия.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">1:17-1:29</span></div></td>
+            </tr>
+            <tr data-start="99" data-end="108">
+                <td class="col-num">12</td>
+                <td class="col-lv">Lapsiņ, paskaties, rekur ir Buckingham Palace. Tā ir Bakingemas pils, kurā kopš seniem laikiem jau dzīvo karaliskā ģimene.</td>
+                <td class="col-ru">Лисичка, посмотри, вот Букингемский дворец. Это Букингемский дворец, в котором с давних времен живет королевская семья.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">1:39-1:48</span></div></td>
+            </tr>
+            <tr data-start="108" data-end="118">
+                <td class="col-num">13</td>
+                <td class="col-lv">Mums Latvijā ir prezidents, bet šeit Lielbritānijā ir karaliskā ģimene. Un šobrīd tur dzīvo karalis ar savu ģimeni.</td>
+                <td class="col-ru">У нас в Латвии президент, а здесь, в Великобритании, — королевская семья. И сейчас там живет король со своей семьей.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">1:47-1:58</span></div></td>
+            </tr>
+            <tr data-start="118" data-end="130">
+                <td class="col-num">14</td>
+                <td class="col-lv">Un pie pils ir sargi. Viņiem ir lielas lāčšādas cepures, skaistas sarkanas uniformas.</td>
+                <td class="col-ru">И у дворца есть стража. У них большие медвежьи шапки и красивая красная форма.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">1:58-2:10</span></div></td>
+            </tr>
+            <tr data-start="133" data-end="148">
+                <td class="col-num">15</td>
+                <td class="col-lv">Vispār nekustās. Cik ilgi mēs tā lapsiņu varam nostāvēt? Viens, divi, trīs. Nu, es nevaru vairāk.</td>
+                <td class="col-ru">Вообще не двигаются. Как долго мы так сможем простоять, Лисичка? Раз, два, три. Ну, я больше не могу.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">2:13-2:28</span></div></td>
+            </tr>
+            <tr data-start="171" data-end="178">
+                <td class="col-num">16</td>
+                <td class="col-lv">Lapsiņ, paskaties, kāds tur sarkans karaliskā krāsā autobuss. Tu gribētu ar tādu izbraukt?</td>
+                <td class="col-ru">Лисичка, посмотри, какой там красный автобус королевского цвета. Ты хотела бы на таком прокатиться?</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">2:51-2.58</span></div></td>
+            </tr>
+            <tr data-start="179" data-end="187">
+                <td class="col-num">17</td>
+                <td class="col-lv">Lapsiņa? Mums būs jābrauc ar metro. Metro ir pilsētas vilciens, kas brauc zem zemes.</td>
+                <td class="col-ru">Лисичка? Нам придется поехать на метро. Метро — это городской поезд, который ездит под землей.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">2:59-3:07</span></div></td>
+            </tr>
+            <tr data-start="229" data-end="241">
+                <td class="col-num">18</td>
+                <td class="col-lv">Paskat, lapsiņ, kādi debesskrāpji. Tās ir ēkas, kuras ir tik augstas, ka sajūta, ka tās skrāpē debesis.</td>
+                <td class="col-ru">Посмотри, Лисичка, какие небоскребы. Это здания настолько высокие, что кажется, будто они скребут небо.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">3:49-4:01</span></div></td>
+            </tr>
+            <tr data-start="295" data-end="302">
+                <td class="col-num">19</td>
+                <td class="col-lv">Anglijā cilvēkiem ļoti garšo tēja, un viņi to parasti dzer ar pienu.</td>
+                <td class="col-ru">В Англии люди очень любят чай и обычно пьют его с молоком.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">4:55-5.02</span></div></td>
+            </tr>
+            <tr data-start="314" data-end="325">
+                <td class="col-num">20</td>
+                <td class="col-lv">Tējas pēcpusdiena ir vesela ēdienreize, kur cilvēki dzer tēju, uzēd cepumiņus, kādu maizīti.</td>
+                <td class="col-ru">Чаепитие — это целый прием пищи, где люди пьют чай, едят печенье и бутерброды.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">5:12-5:25</span></div></td>
+            </tr>
+            <tr data-start="348" data-end="356">
+                <td class="col-num">21</td>
+                <td class="col-lv">Kas tev vislabāk patika mūsu ceļojumā uz Londonu? Arī tu mājās vari sarīkot pats savu tējas pēcpusdienu. Atā!</td>
+                <td class="col-ru">Что тебе больше всего понравилось в нашем путешествии в Лондон? Устрой и ты дома свое чаепитие. Пока!</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">5:48-5:56</span></div></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    var player;
+    var stopTime = 0;
+    var checkInterval = null;
+    var isPlayingSegment = false;
+
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+            height: '100%', width: '100%', videoId: 'Lm2d6cw65ko',
+            playerVars: { 'autoplay': 0, 'controls': 1, 'rel': 0, 'modestbranding': 1 },
+            events: { 'onStateChange': onPlayerStateChange }
+        });
+    }
+
+    document.querySelectorAll('.play-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const row = this.closest('tr');
+            const start = parseFloat(row.getAttribute('data-start'));
+            const end = parseFloat(row.getAttribute('data-end'));
+            document.querySelectorAll('tr').forEach(r => r.classList.remove('active-row'));
+            row.classList.add('active-row');
+            startSegment(start, end);
+        });
+    });
+
+    function startSegment(start, end) {
+        isPlayingSegment = true;
+        stopTime = end;
+        player.seekTo(start, true);
+        player.playVideo();
+        if (checkInterval) clearInterval(checkInterval);
+        checkInterval = setInterval(function() {
+            if (isPlayingSegment && player.getCurrentTime() >= stopTime) {
+                player.pauseVideo();
+                isPlayingSegment = false;
+                clearInterval(checkInterval);
+            }
+        }, 100);
+    }
+
+    function onPlayerStateChange(event) {
+        if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+            isPlayingSegment = false;
+            if (checkInterval) clearInterval(checkInterval);
+        }
+    }
+
+    function toggleCol(lang, show) {
+        const cells = document.querySelectorAll('.col-' + lang);
+        const otherLang = lang === 'lv' ? 'ru' : 'lv';
+        const otherChecked = document.querySelector(`input[onchange*="'${otherLang}'"]`).checked;
+        cells.forEach(c => show ? c.classList.remove('hidden') : c.classList.add('hidden'));
+        document.querySelectorAll('.col-lv, .col-ru').forEach(c => c.classList.remove('full-width'));
+        if (show && !otherChecked) cells.forEach(c => c.classList.add('full-width'));
+        else if (!show && otherChecked) document.querySelectorAll('.col-' + otherLang).forEach(c => c.classList.add('full-width'));
+    }
+</script>
+</body>
+</html>
