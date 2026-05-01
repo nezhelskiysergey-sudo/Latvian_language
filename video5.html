@@ -3,195 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mācību materiāls: Laika ziņas</title>
+    <title>Tuta klausās putnus - Pilns teksts ar numerāciju</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f9;
+        :root {
+            --primary-color: #4CAF50;
+            --accent-color: #ff4757;
+            --bg-color: #f9f9f9;
+            --text-main: #2c3e50;
         }
 
-        /* Видео-заголовок (фиксированный сверху) */
-        .video-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: #000;
-            aspect-ratio: 16 / 9;
-        }
+        body { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-color); }
 
-        .video-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
+        /* Видео-контейнер */
+        .video-container { position: fixed; top: 0; left: 0; width: 100%; background: #000; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        #player-wrapper { width: 100%; aspect-ratio: 16 / 9; background: #000; }
 
-        /* Основной контент с динамическим отступом */
-        .content {
-            margin-top: 58vw; /* Автоматический отступ под размер видео */
-            padding: 15px;
-        }
+        /* Панель управления */
+        .controls-bar { position: sticky; top: 0; background: white; padding: 12px; display: flex; justify-content: center; gap: 20px; z-index: 999; border-bottom: 1px solid #ddd; }
+        .check-group { display: flex; align-items: center; font-weight: 500; cursor: pointer; font-size: 14px; }
+        .check-group input { margin-right: 8px; width: 18px; height: 18px; accent-color: var(--primary-color); }
 
-        /* Таблица */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
+        /* Контент */
+        .content { margin-top: 58vw; padding: 10px; }
+        table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        td { padding: 12px; border-bottom: 1px solid #eee; vertical-align: middle; line-height: 1.5; }
 
-        th, td {
-            padding: 12px;
-            border-bottom: 1px solid #ddd;
-            vertical-align: top;
-            width: 50%;
-        }
+        /* Колонки */
+        .col-num { width: 30px; text-align: center; color: #aaa; font-size: 12px; border-right: 1px solid #f0f0f0; }
+        .col-lv { width: 38%; font-weight: 600; color: var(--text-main); }
+        .col-ru { width: 38%; color: #555; }
+        .col-play { width: 20%; text-align: center; min-width: 95px; }
 
-        th {
-            background-color: #004b8d;
-            color: white;
-            text-align: left;
-        }
+        .play-unit { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+        .play-btn { background: var(--accent-color); color: white; border: none; width: 45px; height: 35px; border-radius: 6px; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+        .play-btn:active { transform: scale(0.9); }
+        .time-label { font-size: 11px; color: #888; font-family: Arial, sans-serif; white-space: nowrap; }
 
-        /* Стилизация колонок */
-        .original-text {
-            font-weight: 600;
-            color: #2c3e50;
-        }
+        .active-row { background-color: #fff9c4 !important; }
+        .hidden { display: none !important; }
+        .full-width { width: 76% !important; }
 
-        .translation-text {
-            font-weight: 400;
-            color: #555;
-        }
-
-        /* Мобильные устройства (шрифт) */
-        @media (max-width: 600px) {
-            table {
-                font-size: 0.9em;
-            }
-        }
-
-        /* Горизонтальный режим (Планшеты/ПК) */
         @media (orientation: landscape) {
-            .video-container {
-                width: 45%;
-                height: 100vh;
-                position: fixed;
-                top: 0;
-                left: 0;
-            }
-
-            .content {
-                margin-top: 0;
-                margin-left: 45%;
-                height: 100vh;
-                overflow-y: auto;
-                padding: 20px;
-            }
-
-            table {
-                font-size: 1.1em;
-            }
+            .video-container { width: 45%; height: 100vh; }
+            #player-wrapper { height: 100%; aspect-ratio: auto; }
+            .content { margin-top: 0 !important; margin-left: 45%; height: 100vh; overflow-y: auto; }
         }
     </style>
 </head>
 <body>
 
-    <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/XVXdr3TS0Yc" 
-                title="YouTube video player" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-        </iframe>
+<div class="video-container">
+    <div id="player-wrapper"><div id="player"></div></div>
+</div>
+
+<div class="content">
+    <div class="controls-bar">
+        <label class="check-group"><input type="checkbox" checked onchange="toggleCol('lv', this.checked)"> Latviešu</label>
+        <label class="check-group"><input type="checkbox" checked onchange="toggleCol('ru', this.checked)"> Русский</label>
     </div>
 
-    <div class="content">
-        <table>
-            <thead>
-                <tr>
-                    <th>Latviešu (Oriģināls)</th>
-                    <th>Русский (Перевод)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="original-text">Vakar Latvijā spoži spīdēja saule dienas gaitā un pēcpusdienā gan mākoņu daudzums pakāpeniski no ziemeļiem palielinājās.</td>
-                    <td class="translation-text">Вчера в Латвии в течение дня ярко светило солнце, а во второй половине дня количество облаков с севера постепенно увеличилось.</td>
-                </tr>
-                <tr>
-                    <td class="original-text">Un tas veicināja to, ka daudzviet Latvijā vakar varēja vērot Saules halo jeb tā saucamo Saules dārzu.</td>
-                    <td class="translation-text">И это способствовало тому, что во многих местах Латвии вчера можно было наблюдать солнечное гало, или так называемый «солнечный сад».</td>
-                </tr>
-                <tr>
-                    <td class="original-text">Mēs ar kolēģiem Tomu un Ilzi arī savā starpā sarakstījāmies, apmainījāmies ar bildēm.</td>
-                    <td class="translation-text">Мы с коллегами Томом и Илзе тоже переписывались между собой, обменивались фотографиями.</td>
-                </tr>
-                <tr>
-                    <td class="original-text">Es izeju ārā — nu nekā nav, nu nekā nav. Domāju: nu labi, jāpamēģina nofotografēt.</td>
-                    <td class="translation-text">Я выхожу на улицу — ну ничего нет, совсем ничего нет. Думаю: ну ладно, надо попробовать сфотографировать.</td>
-                </tr>
-                <tr>
-                    <td class="original-text">Nofotografēju un tikai tad tik tiešām burtiski varēja ieraudzīt šo te dārzu apli, kas ir izveidojies ap sauli.</td>
-                    <td class="translation-text">Сфотографировала, и только тогда действительно буквально можно было увидеть этот круг «сада», который образовался вокруг солнца.</td>
-                </tr>
-                <tr>
-                    <td class="original-text">A tad jūs salīdzinājāt — katram savs dārzs bija, ja? Kāds ir vienam, vienai Ilzei, otrs Toms tikai komentēja.</td>
-                    <td class="translation-text">А потом вы сравнили — у каждого был свой «сад», да? Какой у одного, у одной Илзе, а второй — Том только комментировал.</td>
-                </tr>
-                <tr>
-                    <td class="original-text">Toms komentēja mūsu fotogrāfijas, es tur dažādas bija, jā.</td>
-                    <td class="translation-text">Том комментировал наши фотографии, их там было разных много, да.</td>
-                </tr>
-                <tr>
-                    <td class="original-text">Un katrā gadījumā ar šo te Saules halo var veidot ļoti skaistas fotogrāfijas.</td>
-                    <td class="translation-text">И в любом случае с этим солнечным гало можно сделать очень красивые фотографии.</td>
-                </tr>
-                <tr>
-                    <td class="original-text">To es izdarīju personīgi. Tas lai paliek manā ziņā. Bet kā ierosinājums kādam citam arī, jā.</td>
-                    <td class="translation-text">Это я сделала лично. Пусть это останется при мне. Но это как предложение и для кого-то другого тоже, да.</td>
-                </tr>
-                <tr>
-                    <td class="original-text">Bet par laikapstākļiem jāteic, ka arī šodien Latvijā diena lielākoties būs saulaina.</td>
-                    <td class="translation-text">Но что касается погоды, надо сказать, что и сегодня в Латвии день в основном будет солнечным.</td>
-                </tr>
-                <tr>
-                    <td class="original-text">Brīžiem saulē aizsegs kāds mākonis, tomēr nokrišņi nav gaidāmi.</td>
-                    <td class="translation-text">Временами солнце будет закрывать какое-нибудь облако, однако осадков не ожидается.</td>
-                </tr>
-                <tr>
-                    <td class="original-text">Jau šobrīd un arī dienā saglabāsies brāzmains ziemeļu, ziemeļrietumu puses vējš.</td>
-                    <td class="translation-text">Уже сейчас и в течение дня сохранится порывистый северный, северо-западный ветер.</td>
-                </tr>
-                <tr>
-                    <td class="original-text">Un stiprākās vēja brāzmas ir gaidāmas piekrastē, tāpat arī iekšzemē līdz 15-16 m/s.</td>
-                    <td class="translation-text">И самые сильные порывы ветра ожидаются на побережье, а также внутри страны до 15-16 м/с.</td>
-                </tr>
-                <tr>
-                    <td class="original-text">Vēsāks laiks būs Kurzemes, Vidzemes piekrastē, kur gaisa temperatūra 6-7 grādi.</td>
-                    <td class="translation-text">Более прохладная погода будет на побережье Курземе и Видземе, где температура воздуха составит 6-7 градусов.</td>
-                </tr>
-                <tr>
-                    <td class="original-text">Citviet valstī gaisa temperatūra šodien no 8 līdz 10 grādiem.</td>
-                    <td class="translation-text">В других частях страны температура воздуха сегодня от 8 до 10 градусов.</td>
-                </tr>
-                <tr>
-                    <td class="original-text">Rīgā rīts ir saulains, vējains. Šobrīd gaisa temperatūra 4 grādi.</td>
-                    <td class="translation-text">В Риге утро солнечное, ветреное. Сейчас температура воздуха 4 градуса.</td>
-                </tr>
-                <tr>
-                    <td class="original-text">Dienā gaiss iesils līdz 7-8 grādiem. Ir gaidāms neliels mākoņu daudzums, nokrišņu nebūs.</td>
-                    <td class="translation-text">Днем воздух прогреется до 7-8 градусов. Ожидается небольшая облачность, осадков не будет.</td>
-                </tr>
-                <tr>
-                    <td class="original-text">Taču arī Rīgā valdošais būs brāzmains ziemeļu, ziemeļrietumu vējš un brīžiem brāzmas līdz 16 m/s.</td>
-                    <td class="translation-text">Однако и в Риге будет преобладать порывистый северный, северо-западный ветер, и временами порывы до 16 м/с.</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <table id="lessonTable">
+        <tbody>
+            <tr data-start="0" data-end="7">
+                <td class="col-num">1</td>
+                <td class="col-lv">Vakar Latvijā spoži spīdēja saule dienas gaitā, un pēcpusdienā gan mākoņu daudzums pakāpeniski no ziemeļiem palielinājās.</td>
+                <td class="col-ru">Вчера в Латвии в течение дня ярко светило солнце, а во второй половине дня количество облаков с севера постепенно увеличилось.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">0:00 - 0:07</span></div></td>
+            </tr>
+            <tr data-start="7" data-end="14">
+                <td class="col-num">2</td>
+                <td class="col-lv"> Un tas veicināja to, ka daudzviet Latvijā vakar varēja vērot Saules halo jeb tā saucamo Saules dārzu.</td>
+                <td class="col-ru">И это способствовало тому, что во многих местах Латвии вчера можно было наблюдать солнечное гало, или так называемый «солнечный сад».</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">0:07 - 0:14</span></div></td>
+            </tr>
+            <tr data-start="14" data-end="24">
+                <td class="col-num">3</td>
+                <td class="col-lv">Mēs ar kolēģiem Tomu un Ilzi arī savā starpā sarakstījāmies, apmainījāmies ar bildēm. Es izeju ārā, nu nekā nav, nu nekā nav. Domāju, nu labi, jāpamēģina nofotografēt.</td>
+                <td class="col-ru">Мы с коллегами Томом и Илзе тоже переписывались между собой, обменивались фотографиями. Я выхожу на улицу — ну ничего нет, совсем ничего. Думаю, ну ладно, надо попробовать сфотографировать.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">0:14 - 0:24</span></div></td>
+            </tr>
+            <tr data-start="23" data-end="32">
+                <td class="col-num">4</td>
+                <td class="col-lv">Nofotografēju, un tikai tad tik tiešām burtiski varēja ieraudzīt šo te dārzu apli. kas ir izveidojies ap sauli.</td>
+                <td class="col-ru">Сфотографировала, и только тогда действительно буквально можно было увидеть этот круг «сада», который образовался вокруг солнца.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">0:24 - 0:32</span></div></td>
+            </tr>
+            <tr data-start="31" data-end="40">
+                <td class="col-num">5</td>
+                <td class="col-lv">A tad jūs salīdzinājāt, katram savs dārzs bija, ja? Kāds ir vienam, vienai ilzei, otra Toms tikai komentēja. Tom komentēja mūsu fotogrāfijas. [smiekli] Es tur dažādas bija. Jā.</td>
+                <td class="col-ru">А, так вы сравнивали, у каждого был свой «сад», да? Какой у одного, у Илзе, а Том только комментировал. Том комментировал наши фотографии. [смех] Они там были разные. Да.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">0:31 - 0:40</span></div></td>
+            </tr>
+            <tr data-start="39" data-end="45">
+                <td class="col-num">6</td>
+                <td class="col-lv">Un katrā gadījumā ar šo te Saules halo var veidot ļoti skaistas fotogrāfijas.</td>
+                <td class="col-ru">И в любом случае с этим солнечным гало можно сделать очень красивые фотографии.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">0:39 - 0:45</span></div></td>
+            </tr>
+            <tr data-start="44" data-end="52">
+                <td class="col-num">7</td>
+                <td class="col-lv">To es izdarīju personīgi. Tas lai paliek manā ziņā. Bet kā ierosinājums kādam citam [smiekli] arī. </td>
+                <td class="col-ru">Это я сделала лично. Пусть это останется при мне. Но как предложение для кого-то другого [смех] тоже.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">0:44 - 0:53</span></div></td>
+            </tr>
+            <tr data-start="52" data-end="60">
+                <td class="col-num">8</td>
+                <td class="col-lv"> Jā. Bet par laikapstākļiem jāteic, ka arī šodien Latvijā diena lielākoties būs saulaina. Brīžiem saulē izsegs kāds mākonis, tomēr nokrišņi nav gaidāmi.</td>
+                <td class="col-ru">Да. Но о погоде нужно сказать,что и сегодня в Латвии день в основном будет солнечным. Время от времени солнце будет закрывать облако, однако осадков не ожидается.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">0:53 - 1:00</span></div></td>
+            </tr>
+            <tr data-start="60" data-end="66">
+                <td class="col-num">9</td>
+                <td class="col-lv"> Jau šobrīd un arī dienā saglabāsies brāzmains ziemeļ ziemeļrietumu puses vējš.</td>
+                <td class="col-ru">Уже сейчас и в течение дня сохранится порывистый северо-северо-западный ветер.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">1:00 - 1:06</span></div></td>
+            </tr>
+            <tr data-start="66" data-end="73">
+                <td class="col-num">10</td>
+                <td class="col-lv">Un stiprākās vēja brāzmas ir gaidāmas piekrastē, tāpat arī iekšzemē līdz 15-16 ms.</td>
+                <td class="col-ru">И самые сильные порывы ветра ожидаются на побережье, а также в глубине страны  до 15-16 м/с.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">1:06 - 1:13</span></div></td>
+            </tr>
+            <tr data-start="73" data-end="78">
+                <td class="col-num">11</td>
+                <td class="col-lv">Vēsāks laiks būs Kurzemes, Vidzemes piekrastē, kur gaisa temperatūra 6-7°.</td>
+                <td class="col-ru">Более прохладная погода будет на побережье Курземе и Видземе, где температура воздуха составит 6–7°.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">1:13 - 1:18</span></div></td>
+            </tr>
+            <tr data-start="78" data-end="88">
+                <td class="col-num">12</td>
+                <td class="col-lv">Citviet valstī gaisa temperatūra šodien no 8:00 līdz 10°. Rīgā rīts ir saulains, vējainis. Šobrīd gaisa temperatūra 4°.</td>
+                <td class="col-ru">В других частях страны температура воздуха сегодня от 8 до 10°. В Риге утро солнечное, ветреное. Сейчас температура воздуха 4°.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">1:18 - 1:28</span></div></td>
+            </tr>
+            <tr data-start="88" data-end="95">
+                <td class="col-num">13</td>
+                <td class="col-lv">Dienā gaiss iesils līdz 78 grādiem. Ir gaidāms neliels mākoņu daudzums, nokrišņu nebūs. </td>
+                <td class="col-ru">Днем воздух прогреется до 7–8 градусов. Ожидается небольшая облачность, осадков не будет. </td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">1:28 - 1:35</span></div></td>
+            </tr>
+            <tr data-start="95" data-end="103">
+                <td class="col-num">14</td>
+                <td class="col-lv">Taču arī Rīgā valdošais būs brāzmains, ziemeļziemeļrietumējš un brīžiem brāzmas līdz 16 m seundē.</td>
+                <td class="col-ru">Однако и в Риге будет преобладать порывистый северо-северо-западный ветер, и временами порывы до 16 м/с.</td>
+                <td class="col-play"><div class="play-unit"><button class="play-btn">▶</button><span class="time-label">1:35 - 1:43</span></div></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
+<script>
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    var player;
+    var stopTime = 0;
+    var checkInterval = null;
+    var isPlayingSegment = false;
+
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+            height: '100%', width: '100%', videoId: 'XVXdr3TS0Yc',
+            playerVars: { 'autoplay': 0, 'controls': 1, 'rel': 0, 'modestbranding': 1 },
+            events: { 'onStateChange': onPlayerStateChange }
+        });
+    }
+
+    document.querySelectorAll('.play-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const row = this.closest('tr');
+            const start = parseFloat(row.getAttribute('data-start'));
+            const end = parseFloat(row.getAttribute('data-end'));
+            document.querySelectorAll('tr').forEach(r => r.classList.remove('active-row'));
+            row.classList.add('active-row');
+            startSegment(start, end);
+        });
+    });
+
+    function startSegment(start, end) {
+        isPlayingSegment = true;
+        stopTime = end;
+        player.seekTo(start, true);
+        player.playVideo();
+        if (checkInterval) clearInterval(checkInterval);
+        checkInterval = setInterval(function() {
+            if (isPlayingSegment && player.getCurrentTime() >= stopTime) {
+                player.pauseVideo();
+                isPlayingSegment = false;
+                clearInterval(checkInterval);
+            }
+        }, 100);
+    }
+
+    function onPlayerStateChange(event) {
+        if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+            isPlayingSegment = false;
+            if (checkInterval) clearInterval(checkInterval);
+        }
+    }
+
+    function toggleCol(lang, show) {
+        const cells = document.querySelectorAll('.col-' + lang);
+        const otherLang = lang === 'lv' ? 'ru' : 'lv';
+        const otherChecked = document.querySelector(`input[onchange*="'${otherLang}'"]`).checked;
+        cells.forEach(c => show ? c.classList.remove('hidden') : c.classList.add('hidden'));
+        
+        document.querySelectorAll('.col-lv, .col-ru').forEach(c => c.classList.remove('full-width'));
+        
+        if (show && !otherChecked) cells.forEach(c => c.classList.add('full-width'));
+        else if (!show && otherChecked) document.querySelectorAll('.col-' + otherLang).forEach(c => c.classList.add('full-width'));
+    }
+</script>
 </body>
 </html>
