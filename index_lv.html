@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning</title>
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #2c3e50;
+            --accent-color: #34495e;
+            --quote-bg: #f9f9f9;
+            --quote-border: #ccd1d1;
+            --btn-color: #27ae60; 
+            --btn-hover: #2ecc71;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .language-select {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .language-select a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 0.9rem;
+            font-weight: bold;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+
+        .language-select a.active {
+            opacity: 1;
+            border-bottom: 2px solid var(--btn-color);
+        }
+
+        .language-select a:hover {
+            opacity: 1;
+        }
+
+        .cta-side-container {
+            position: fixed;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 9999;
+        }
+
+        .nav-button-side {
+            display: block;
+            writing-mode: vertical-lr;
+            transform: rotate(180deg);
+            padding: 25px 12px;
+            background-color: var(--btn-color);
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 0 10px 10px 0;
+            box-shadow: 4px 0 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-button-side:hover {
+            background-color: var(--btn-hover);
+            padding-left: 20px;
+            box-shadow: 6px 0 20px rgba(39, 174, 96, 0.4);
+        }
+
+        .top-content {
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .floated-image {
+            float: right;
+            width: 40%;
+            height: auto;
+            margin-left: 20px;
+            margin-bottom: 15px;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .author-note {
+            background-color: var(--quote-bg);
+            border-left: 5px solid var(--quote-border);
+            padding: 20px;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        h2 {
+            color: var(--accent-color);
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 30px;
+            font-size: 1.5rem;
+        }
+
+        ul { padding-left: 20px; }
+        li { margin-bottom: 15px; }
+        strong { color: #000; }
+
+        .afterword {
+            margin-top: 50px;
+            padding: 30px;
+            background-color: #f0f4f8;
+            border-radius: 8px;
+            color: var(--text-color);
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            body { padding-left: 60px; }
+            .floated-image { float: none; width: 100%; margin-left: 0; }
+            .nav-button-side { font-size: 0.9rem; padding: 15px 8px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="language-select">
+        <a href="index.html">RU</a>
+        <a href="index_ua.html">UA</a>
+        <a href="index_lv.html" class="active">LV</a>
+    </nav>
+
+    <div class="cta-side-container">
+        <a href="lessons.html" class="nav-button-side">Sākt nodarbības</a>
+    </div>
+
+    <div class="top-content">
+        <img src="image1.png" alt="Valodas apguves metodika" class="floated-image">
+
+        <div class="author-note">
+            <strong>No autora:</strong> Es neesmu zinātņu kandidāts vai profesionāls lingvists. Viss turpmāk izklāstītais ir manu personīgo novērojumu, praktiskās pieredzes un analīzes rezultāts par to, kā patiesībā notiek dzīvas runas apguves process.
+        </div>
+
+        <section>
+            <h2>1. Runas artikulācija un psiholoģiskā pārliecība</h2>
+            <p>Runāšanas process tiek uzskatīts par pilnvērtīgu fizisku treniņu.</p>
+            <ul>
+                <li><strong>"Sarežģītā vingrinājuma" princips:</strong> Sarežģītus vārdus nav iespējams izrunāt tīri ar pirmo reizi. Mēs stostāmies, un tas ir dabiski — runas aparāts pie tiem nav pieradis. Tāpat kā sportā, tikai daudzkārtēji atkārtojumi ļauj "ierakstīt" pareizo muskuļu kustības trajektoriju.</li>
+                <li><strong>Runas bloku noņemšana:</strong> Bieži vien runāšana sabiedrībā tiek bloķēta zemapziņas nedrošības dēļ par to, kā tieši vārds tiek izrunāts. Bailes paklupt paralizē komunikāciju.</li>
+                <li><strong>Automātisms:</strong> Trenējot artikulāciju līdz automātismam, mēs noņemam šīs bailes. Kad muskuļi "zina" trajektoriju, bloki pazūd. Rezultātā pietiek ar domas "dzirksteli", un uztrenētie muskuļi paši izrunā frāzi.</li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="main-text">
+        <section>
+            <h2>2. Jēgas klausīšanās un reakcijas ātrums</h2>
+            <p>Ir svarīgi ne tikai saprast jēgu, bet līdz minimumam saīsināt laiku starp skaņu un apzināšanos.</p>
+            <ul>
+                <li><strong>Tūlītēja reakcija:</strong> Ideāls rezultāts — kad skaņa un jēga saplūst. Jūs netulkojat, bet vienkārši "zināt" nozīmi skaņas brīdī.</li>
+                <li><strong>Treniņa metode:</strong> Noklausieties frāžu bloku un pārbaudiet sevi pēc tulkojuma. Ja jēga pie jums nonāca PIRMS teksta izlasīšanas — saikne ir cieša. Ja vispirms nācās izlasīt — ceļš līdz atmiņas šūnai vēl ir pārāk garš.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. Shadowing tehnika (Sinhronā imitācija)</h2>
+            <p>Tā ir metode dziļai iegremdēšanai dzimtā runātāja dzīvajā runā, kur jūs kļūstat par viņa "ēnu".</p>
+            <ul>
+                <li><strong>Metodes būtība:</strong> Jūs sinhroni kopējat tempu, intonāciju, akcentus un pat elpas pauzes. Tas ļauj smadzenēm pierast pie valodas dabiskā ritma.</li>
+                <li><strong>Darbs ar skaņas "fiziku":</strong> Jūs mācāties just, kā tieši vibrē balss saites un kā kustas runātāja lūpas. Tas pārvērš svešvalodu jūsu ķermenim saprotamā fiziskā procesā.</li>
+                <li><strong>Treniņa režīms:</strong> Sāciet ar ātrumu 0.75x. Izstrādājiet kustību trajektoriju lēnā tempā un pārejiet pie oriģināla (1x) tikai tad, kad skanat unisonā ar diktoru.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>4. Leksika: no haosa līdz automātismam</h2>
+            <p>Iedomājieties, ka visas jūsu valodas zināšanas ir telpa milzīgas lodes iekšpusē.</p>
+            <ul>
+                <li><strong>Pasīvās rezerves:</strong> Tā ir telpa, kur vārdi peld bezsvara stāvoklī. Tiem nav svara un atbalsta punktu, tos nav iespējams "satvert" vajadzīgajā brīdī. Jūs atpazīstat vārdu, kad tas palido garām, bet nevarat to vadīt. Šādā haosā informācija ātri "izvēdinās" un aizlido tukšumā. Tas ir salīdzināms ar braucienu pa nepazīstamu pilsētu: jums nav pārliecības, jūs esat pastāvīgā sasprindzinājumā un tērējat milzīgus resursus ceļa meklēšanai.</li>
+                <li><strong>Aktīvās rezerves:</strong> Tas ir kā ceļš, pa kuru esat braucis simtiem reižu. Jūs zināt uz tā katru nelīdzenumu un to, kur jānobremzē — smadzenēm nav vajadzīga lieka slodze, viss notiek pats no sevis. Lai vārds vai frāze kļūtu par jūsu instrumentu, ar tiem jāstrādā daudzkārt. Tikai tad tie nostiprināsies konkrētā atmiņas šūnā, no kuras informāciju ir viegli iegūt bez piepūles — tā ir tiešā neironu saite.</li>
+            </ul>
+        </section>
+
+        <div class="afterword">
+            <p>Ieiešana mācību procesā bieži atgādina lēcienu aukstā upē. Sākumā — šoks, diskomforts un vēlme nekavējoties izkāpt ārā. Tā ir normāla organisma reakcija uz adaptāciju. Bet, ja dosiet sev nedaudz laika un neizleksiet krastā uzreiz, ķermenis pieradīs, kļūs silti, un pretestību nomainīs azarts no reāla progresa.</p>
+        </div>
+    </div>
+
+</body>
+</html>
